@@ -1,0 +1,28 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background_Ventana">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="INTEGRANTES"
+        android:gravity="center"
+        android:textSize="30dp"
+        android:textColor="#CFD8DC"
+        android:singleLine="true"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="RENÁN GÁLVEZ\n CESAR UVIDIA\n ANDRES KAHUA"
+        android:textSize="25dp"
+        android:gravity="center"
+        android:textColor="#CFD8DC"
+        android:textStyle="bold"
+        />
+</LinearLayout>

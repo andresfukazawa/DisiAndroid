@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true">
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/me_tvCodigo"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#424242"
+        android:text="@string/me_Codigo"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        />
+
+    <EditText
+        android:id="@+id/me_etCodigo"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dip"
+        android:layout_marginBottom="20dip"
+        android:singleLine="true"
+        android:hint="@string/me_CodigoHint"
+        android:enabled="false"
+        />
+
+    <TextView
+        android:id="@+id/me_tvNombre"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#424242"
+        android:text="@string/me_Nombre"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        />
+
+    <EditText
+        android:id="@+id/me_etNombre"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dip"
+        android:layout_marginBottom="20dip"
+        android:singleLine="true"
+        android:hint="@string/me_NombreHint"
+        />
+
+    <CheckBox
+        android:id="@+id/me_chkEstado"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dip"
+        android:singleLine="true"
+        android:text="@string/me_Estado"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        />
+
+</LinearLayout>
+</ScrollView>
