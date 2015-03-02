@@ -15,6 +15,10 @@
     <string name="Agregar">Agregar</string>
     <string name="Guardar">Guardar</string>
 
+    <!--STRING SPLASH SCREEN -->
+    <string name="integrantes">INTEGRANTES</string>
+    <string name="integrantes_miembros">RENÁN GÁLVEZ\n CESAR UBIDIA\n ANDRÉS FUKAZAWA</string>
+
     <!--STRING DASHBOARD -->
     <string name="dashboard_title">Dashboard</string>
 

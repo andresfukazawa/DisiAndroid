@@ -8,7 +8,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="INTEGRANTES"
+        android:text="@string/integrantes"
         android:gravity="center"
         android:textSize="30dp"
         android:textColor="#CFD8DC"
@@ -19,7 +19,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="RENÁN GÁLVEZ\n CESAR UBIDIA\n ANDRÉS FUKAZAWA"
+        android:text="@string/integrantes_miembros"
         android:textSize="25dp"
         android:gravity="center"
         android:textColor="#CFD8DC"
