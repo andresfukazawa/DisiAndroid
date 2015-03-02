@@ -8,6 +8,7 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Vibrator;
@@ -19,7 +20,10 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.scpdemo.DisiAndroid.DAO.DataBaseHelper;
 import com.scpdemo.DisiAndroid.R;
+
+import java.security.MessageDigest;
 
 
 public class Activity_Login extends ActionBarActivity {
@@ -54,10 +58,19 @@ public class Activity_Login extends ActionBarActivity {
 
 
         txtUsuarioNombre.setText(getSharedPreferences(getPackageName(), MODE_PRIVATE).getString("Usuario",""));
-        txtUsuarioPassword.setText(getSharedPreferences(getPackageName(), MODE_PRIVATE).getString("Clave",""));
+//        txtUsuarioPassword.setText(getSharedPreferences(getPackageName(), MODE_PRIVATE).getString("Clave",""));
+        try {
+            DataBaseHelper dataBaseHelper = new DataBaseHelper(Activity_Login.this);
+            dataBaseHelper.createDataBase();
+            dataBaseHelper.openDataBase();
+        } catch (Exception ex) {
+            Toast.makeText(Activity_Login.this, "No se pudo copiar la BD", Toast.LENGTH_SHORT).show();
+        }
+
+        btnUsuarioLogin.setOnClickListener(btnUsuarioLoginOnClick);
 
         // LOGIN
-        btnUsuarioLogin.setOnClickListener(new View.OnClickListener() {
+        /*btnUsuarioLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //EXTRAEMOS VALORES DE EDITTEXT
@@ -89,10 +102,49 @@ public class Activity_Login extends ActionBarActivity {
                     startActivityForResult(intent, 0);
                 }
             }
-        });
+        });*/
     }
 
-    public Boolean OKData(){
+    View.OnClickListener btnUsuarioLoginOnClick = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+
+            Cursor cursor   = null;
+            Boolean loginOk = false;
+
+            try{
+                //Calcular el MD5 de la contrasena
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.update(txtUsuarioPassword.getText().toString().getBytes());
+                byte byteData[] = messageDigest.digest();
+
+                StringBuffer sb = new StringBuffer();
+                for (int i = 0; i < byteData.length; i++) {
+                    sb.append(Integer.toString((byteData[i] & 0xff) + 0x100, 16).substring(1));
+                }
+                String pwdhash = sb.toString();
+
+                cursor = DataBaseHelper.myDataBase.query("USUARIOS", null, "USUADES=? and USUACLAV=?", new String[]{txtUsuarioNombre.getText().toString(), pwdhash}, null, null, null);
+                if(cursor.getCount() == 1) {
+                    loginOk = true;
+                }
+
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            } finally {
+                if (cursor != null)
+                    cursor.close();
+            }
+
+            if (loginOk) {
+                Intent intent = new Intent(Activity_Login.this, Activity_Main.class);
+                startActivityForResult(intent, 0);
+            }
+
+        }
+    };
+
+    /*public Boolean OKData(){
         Vibrator vibrator = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
         Toast toastUsuario = Toast.makeText(getApplicationContext(),"Ingrese el nombre de usuario",Toast.LENGTH_SHORT);
         Toast toastPassword = Toast.makeText(getApplicationContext(),"Ingrese su password",Toast.LENGTH_SHORT);
@@ -127,5 +179,5 @@ public class Activity_Login extends ActionBarActivity {
         }
 
 
-    }
+    }*/
 }
