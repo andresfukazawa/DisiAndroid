@@ -8,6 +8,7 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -137,6 +138,10 @@ public class Activity_Login extends ActionBarActivity {
             }
 
             if (loginOk) {
+                SharedPreferences.Editor editor = getSharedPreferences(getPackageName(), MODE_PRIVATE).edit();
+                editor.putString("Usuario", txtUsuarioNombre.getText().toString());
+                editor.commit();
+
                 Intent intent = new Intent(Activity_Login.this, Activity_Main.class);
                 startActivityForResult(intent, 0);
             }

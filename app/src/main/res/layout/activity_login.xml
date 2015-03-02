@@ -7,8 +7,7 @@
 
     <RelativeLayout
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        >
+        android:layout_height="wrap_content" >
 
         <!-- Login Form -->
         <LinearLayout
@@ -16,32 +15,33 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dip"
-           >
+            android:padding="10dip" >
             <!--  Email Label -->
-            <TextView android:layout_width="fill_parent"
+            <TextView
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#424242"
                 android:text="Usuario"
                 android:textSize="18dp"
-                android:textStyle="bold"
-                />
+                android:textStyle="bold" />
 
-            <EditText android:layout_width="fill_parent"
+            <EditText
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dip"
                 android:layout_marginBottom="20dip"
                 android:singleLine="true"
                 android:hint="Nombre de Usuario"
                 android:id="@+id/txtUsuarioNombre" />
+
             <!--  Password Label -->
             <TextView android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#424242"
                 android:text="Password"
                 android:textSize="18dp"
-                android:textStyle="bold"
-                />
+                android:textStyle="bold" />
+
             <EditText
                 android:id="@+id/txtUsuarioPassword"
                 android:layout_width="fill_parent"
@@ -49,9 +49,7 @@
                 android:layout_marginTop="5dip"
                 android:singleLine="true"
                 android:password="true"
-                android:hint="Contraseña"
-
-                />
+                android:hint="Contraseña" />
 
             <CheckBox
                 android:id="@+id/chkGuardar"
@@ -59,16 +57,15 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dip"
                 android:singleLine="true"
-                android:text="Guardar Contraseña"
-                />
+                android:text="Guardar Contraseña" />
 
-            <Button android:id="@+id/btnUsuarioLogin"
-               style="@style/buttonStyle_250x40"
-                android:text="LOGIN"
-             />
-
+            <Button
+                android:id="@+id/btnUsuarioLogin"
+                style="@style/buttonStyle_250x40"
+                android:text="LOGIN" />
 
         </LinearLayout>
         <!-- Login Form Ends -->
     </RelativeLayout>
+
 </ScrollView>
