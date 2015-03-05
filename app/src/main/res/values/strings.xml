@@ -41,6 +41,11 @@
     <string name="me_CodigoHint">Código Generado</string>
     <string name="me_NombreHint">Ingrese Nombre</string>
 
+    <!--STRING PEDIDO -->
+    <string name="pe_Mesa">Pedido para la mesa</string>
+    <string name="pe_Entradas">Entradas</string>
+    <string name="pe_PFondo">Platos de fondo</string>
+    <string name="pe_Postres">Postres</string>
 
 
 </resources>

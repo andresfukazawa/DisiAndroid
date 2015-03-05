@@ -8,6 +8,7 @@ import android.widget.Button;
 
 import com.scpdemo.DisiAndroid.Activity_Busqueda;
 import com.scpdemo.DisiAndroid.Mesa.Activity_Mesa_Lis;
+import com.scpdemo.DisiAndroid.Pedido.Activity_Pedido;
 import com.scpdemo.DisiAndroid.Producto.Activity_Producto;
 import com.scpdemo.DisiAndroid.Usuario.Activity_Usuario;
 import com.scpdemo.DisiAndroid.Producto.Activity_Swipe;
@@ -87,7 +88,7 @@ public class Activity_Main extends ActionBarActivity {
     View.OnClickListener btnPedidoOnClickListener= new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent intent=new Intent(Activity_Main.this,Activity_Producto.class);
+            Intent intent=new Intent(Activity_Main.this, Activity_Pedido.class);
             startActivityForResult(intent,0);
         }
     };
