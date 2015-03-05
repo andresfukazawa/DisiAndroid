@@ -81,9 +81,6 @@ public class Activity_Pedido extends ActionBarActivity {
     }
 
     private void mostrarMenu(String tipo, String mesa) {
-        Toast.makeText(Activity_Pedido.this, "in mostrarMenu", Toast.LENGTH_SHORT).show();
-        Toast.makeText(Activity_Pedido.this, "tipo : " + tipo, Toast.LENGTH_SHORT).show();
-        Toast.makeText(Activity_Pedido.this, "mesa : " + mesa, Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(Activity_Pedido.this, Activity_MostrarMenu.class);
         intent.putExtra("tipo", tipo);
         intent.putExtra("mesa", mesa);
@@ -93,23 +90,13 @@ public class Activity_Pedido extends ActionBarActivity {
     View.OnClickListener btEntradasOnClick = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Toast.makeText(Activity_Pedido.this, spMesa.getSelectedItem().toString(), Toast.LENGTH_SHORT).show();
             mostrarMenu("1", spMesa.getSelectedItem().toString());
         }
     };
 
-//    View.OnClickListener btEntradasOnClick = new View.OnClickListener() {
-//        @Override
-//        public void onClick(View v) {
-//            Toast.makeText(Activity_Pedido.this, "in View.OnClickListener", Toast.LENGTH_SHORT).show();
-//            mostrarMenu("1", spMesa.getSelectedItem().toString());
-//        }
-//    };
-
     View.OnClickListener btPFondoOnClick = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Toast.makeText(Activity_Pedido.this, "in View.OnClickListener", Toast.LENGTH_SHORT).show();
             mostrarMenu("2", spMesa.getSelectedItem().toString());
         }
     };
@@ -117,7 +104,6 @@ public class Activity_Pedido extends ActionBarActivity {
     View.OnClickListener btPostresOnClick = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Toast.makeText(Activity_Pedido.this, "in View.OnClickListener", Toast.LENGTH_SHORT).show();
             mostrarMenu("3", spMesa.getSelectedItem().toString());
         }
     };

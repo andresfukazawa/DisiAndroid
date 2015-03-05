@@ -36,9 +36,7 @@ public class Activity_MostrarMenu extends ActionBarActivity {
         tvMesa   = (TextView)findViewById(R.id.tv_mm_SMMesa);
         etFiltro = (EditText)findViewById(R.id.et_mm_SMFiltro);
         lvMenu   = (ListView)findViewById(R.id.lv_mm_SMMenu);
-        Toast.makeText(Activity_MostrarMenu.this, "in onCreate", Toast.LENGTH_SHORT).show();
         populateList(getIntent().getExtras().getString("tipo"));
-        //populateList("1");
         mLVMainAdapter = new LVMainAdapter(Activity_MostrarMenu.this, 0, mLstString);
 
         lvMenu.setAdapter(mLVMainAdapter);

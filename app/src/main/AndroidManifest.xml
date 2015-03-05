@@ -35,6 +35,7 @@
 
 
         <activity android:name=".Pedido.Activity_Pedido"/>
+        <activity android:name=".Pedido.Activity_MostrarMenu"/>
         <activity android:name=".Producto.Activity_Producto"></activity>
         <activity android:name=".Main.Activity_Login"></activity>
 
