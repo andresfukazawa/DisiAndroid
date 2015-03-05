@@ -6,29 +6,31 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:orientation="horizontal"
         android:layout_weight="1">
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="56dp"
             android:text="@string/pe_Mesa"
             android:layout_weight="1"
             android:textSize="24dp"
             android:textStyle="bold"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="15dp"/>
+            android:layout_marginLeft="15dp"
+            android:layout_gravity="bottom"/>
 
         <Spinner
             android:id="@+id/sp_pe_mesa"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="56dp"
             android:layout_weight="1"
             android:textSize="24dp"
             android:textStyle="bold"
             android:layout_marginTop="10dp"
-            android:layout_marginRight="15dp"></Spinner>
+            android:layout_marginRight="15dp"
+            android:layout_gravity="bottom"></Spinner>
 
         </LinearLayout>
 
@@ -42,7 +44,7 @@
         android:textStyle="bold"/>
 
     <Button
-        android:id="@+id/bt_pe_entradas"
+        android:id="@+id/bt_pe_pfondo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/pe_PFondo"
@@ -51,7 +53,7 @@
         android:textStyle="bold"/>
 
     <Button
-        android:id="@+id/bt_pe_entradas"
+        android:id="@+id/bt_pe_postres"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/pe_Postres"

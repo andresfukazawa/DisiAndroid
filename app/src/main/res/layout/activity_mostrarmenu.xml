@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_mm_SMMesa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="24dp" />
+
+    <EditText
+        android:id="@+id/et_mm_SMFiltro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/pe_hint_filtro"
+        android:textSize="24dp" />
+
+    <ListView
+        android:id="@+id/lv_mm_SMMenu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>
