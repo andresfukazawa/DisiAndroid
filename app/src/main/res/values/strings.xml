@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="app_name">RESTOBAR</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
@@ -11,27 +12,25 @@
     <string name="button6">Facturacion</string>
     <string name="button7">Consultas</string>
     <string name="button8">Reportes</string>
-
     <string name="Agregar">Agregar</string>
     <string name="Guardar">Guardar</string>
 
-    <!--STRING SPLASH SCREEN -->
+    <!-- STRING SPLASH SCREEN -->
     <string name="integrantes">INTEGRANTES</string>
     <string name="integrantes_miembros">RENÁN GÁLVEZ\n CESAR UBIDIA\n ANDRÉS FUKAZAWA</string>
 
-    <!--STRING DASHBOARD -->
+    <!-- STRING DASHBOARD -->
     <string name="dashboard_title">Dashboard</string>
 
-    <!--STRING LOGIN -->
+    <!-- STRING LOGIN -->
     <string name="login_title">Login</string>
 
-    <!--STRING USUARIO-->
+    <!-- STRING USUARIO -->
     <string name="usuario_title_Lis">Lista de Usuarios</string>
     <string name="usuario_title">Registro de Usuarios</string>
     <string name="us_Estado">Inactivo</string>
 
-
-    <!--STRING MESA -->
+    <!-- STRING MESA -->
     <string name="mesa_title_Lis">Lista de Mesas</string>
     <string name="mesa_title">Registro de mesas</string>
     <string name="me_Codigo">Código</string>
@@ -41,12 +40,13 @@
     <string name="me_CodigoHint">Código Generado</string>
     <string name="me_NombreHint">Ingrese Nombre</string>
 
-    <!--STRING PEDIDO -->
+    <!-- STRING PEDIDO -->
     <string name="pe_Mesa">Pedido para la mesa :</string>
     <string name="pe_Entradas">Entradas</string>
     <string name="pe_PFondo">Platos de fondo</string>
     <string name="pe_Postres">Postres</string>
     <string name="pe_hint_filtro">Ingrese filtro</string>
-
+    <string name="title_activity_activity_maps">activity_maps</string>
+    <string name="title_activity_maps">MapsActivity</string>
 
 </resources>

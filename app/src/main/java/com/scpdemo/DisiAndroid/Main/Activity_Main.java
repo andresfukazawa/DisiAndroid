@@ -24,6 +24,7 @@ import com.scpdemo.DisiAndroid.Usuario.Activity_Usuario;
 import com.scpdemo.DisiAndroid.Producto.Activity_Swipe;
 import com.scpdemo.DisiAndroid.R;
 import com.scpdemo.DisiAndroid.Usuario.Activity_Usuario_List;
+import com.scpdemo.tab_control.MapsActivity;
 
 /**
  * Created by rgalvez on 10/02/2015.
@@ -110,8 +111,6 @@ public class Activity_Main extends ActionBarActivity {
         };
 
 
-
-
         final ListView lista = (ListView) findViewById(R.id.listView1);
         adapter = new ListViewAdapter(this, titulo, imagenes);
         lista.setAdapter(adapter);
@@ -140,7 +139,7 @@ public class Activity_Main extends ActionBarActivity {
                         startActivity(intent4);
                         break;
                     case 4:
-                        Intent intent5 = new Intent(Activity_Main.this,Activity_Mesa.class);
+                        Intent intent5 = new Intent(Activity_Main.this,MapsActivity.class);
                         startActivity(intent5);
                         break;
 
