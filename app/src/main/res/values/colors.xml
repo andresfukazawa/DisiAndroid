@@ -32,4 +32,14 @@
     <color name="background_Ventana">#FF8F00</color>
     <color name="textColor_Ventana">#FF8F00</color>
 
+
+     <color name="color_primary">#FFFF</color>
+    <color name="color_primarydark">#D32F2F</color>
+    <color name="color_accent">#7C4DFF</color>
+
+
+    <color name="color_primary2">#D15350</color>
+    <color name="color_primarydark2">#F32F76</color>
+    <color name="color_accent2">#7C4D45</color>
+
 </resources>
