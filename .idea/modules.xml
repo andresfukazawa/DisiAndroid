@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/DisiAndroid.iml" filepath="$PROJECT_DIR$/DisiAndroid.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Repositorio_trabajofinal.iml" filepath="$PROJECT_DIR$/Repositorio_trabajofinal.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

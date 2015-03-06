@@ -1,11 +1,15 @@
 package com.scpdemo.DisiAndroid.Pedido;
 
+import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -47,8 +51,6 @@ public class Activity_MostrarMenu extends ActionBarActivity {
         Cursor cursor = null;
         mLstString = new ArrayList<>();
 
-        Toast.makeText(Activity_MostrarMenu.this, "in populateList", Toast.LENGTH_SHORT).show();
-
         try{
             cursor = DataBaseHelper.myDataBase.query("PRODUCTO", null, "PRODTIP=?", new String[]{tipo}, null, null, "PRODNOM");
             if(cursor.moveToFirst()) {
@@ -84,4 +86,37 @@ public class Activity_MostrarMenu extends ActionBarActivity {
             mLVMainAdapter.notifyDataSetChanged();
         }
     };
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_platos, menu);
+        menu.findItem(R.id.ic_action_add).setVisible(true);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.ic_action_add:
+                if (lvMenu.getCount() == 1) {
+                    //if (mLVMenuAdapter.getCount() == 1) {
+                    ContentValues cv = new ContentValues();
+                    cv.put("MESADET", Integer.valueOf(getIntent().getExtras().getString("mesa")));
+                    cv.put("DETPPRO", mLVMainAdapter.getItem(0).toString());
+                    cv.put("DETPCAN", 1);
+                    long temp = DataBaseHelper.myDataBase.insert("PEDIDO_DETALLE", null, cv);
+                    Toast.makeText(Activity_MostrarMenu.this, String.valueOf(temp), Toast.LENGTH_SHORT).show();
+//                    Cursor cursor = null;
+//                    cursor = DataBaseHelper.myDataBase.query("PEDIDO_DETALLE", null, "idx=?", new String[]{String.valueOf(temp - 1)}, null, null, null);
+//                    cursor.moveToFirst();
+//                    if (cursor != null) cursor.close();
+
+                    Intent intent = new Intent();
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 }
