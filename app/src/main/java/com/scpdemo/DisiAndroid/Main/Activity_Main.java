@@ -65,7 +65,6 @@ public class Activity_Main extends ActionBarActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(R.string.app_name);
         getSupportActionBar().setSubtitle(R.string.dashboard_title);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setIcon(R.drawable.ic_launcher);
 
         btnUsuario=(Button) findViewById(R.id.btnUsuario);
@@ -208,7 +207,8 @@ public class Activity_Main extends ActionBarActivity {
         @Override
         public void onClick(View v) {
             Intent intent=new Intent(Activity_Main.this, Activity_Pedido.class);
-            startActivityForResult(intent,0);
+//            startActivityForResult(intent,0);
+            startActivity(intent);
         }
     };
 

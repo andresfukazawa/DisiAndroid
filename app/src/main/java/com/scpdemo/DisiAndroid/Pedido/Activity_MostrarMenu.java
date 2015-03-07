@@ -43,6 +43,12 @@ public class Activity_MostrarMenu extends ActionBarActivity {
         populateList(getIntent().getExtras().getString("tipo"));
         mLVMainAdapter = new LVMainAdapter(Activity_MostrarMenu.this, 0, mLstString);
 
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle(R.string.app_name);
+        getSupportActionBar().setSubtitle(R.string.dashboard_title_pedidos);
+        getSupportActionBar().setIcon(R.drawable.ic_launcher);
+
         lvMenu.setAdapter(mLVMainAdapter);
         etFiltro.addTextChangedListener(etMenuTextWatcher);
     }

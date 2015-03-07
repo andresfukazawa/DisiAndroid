@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -25,6 +27,7 @@ public class Activity_Pedido extends ActionBarActivity {
 
     private Spinner spMesa;
     private Button  btEntradas, btPFondo, btPostres;
+    private ActionBarDrawerToggle mActionBarDrawerToggle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +38,12 @@ public class Activity_Pedido extends ActionBarActivity {
         btEntradas = (Button)findViewById(R.id.bt_pe_entradas);
         btPFondo   = (Button)findViewById(R.id.bt_pe_pfondo);
         btPostres  = (Button)findViewById(R.id.bt_pe_postres);
+
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle(R.string.app_name);
+        getSupportActionBar().setSubtitle(R.string.dashboard_title_pedidos);
+        getSupportActionBar().setIcon(R.drawable.ic_launcher);
 
         populateSpinner();
 
@@ -107,4 +116,12 @@ public class Activity_Pedido extends ActionBarActivity {
             mostrarMenu("3", spMesa.getSelectedItem().toString());
         }
     };
+
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        if (mActionBarDrawerToggle.onOptionsItemSelected(item))
+//            return true;
+//        else
+//            return super.onOptionsItemSelected(item);
+//    }
 }
