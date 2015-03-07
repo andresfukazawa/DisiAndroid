@@ -117,11 +117,4 @@ public class Activity_Pedido extends ActionBarActivity {
         }
     };
 
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        if (mActionBarDrawerToggle.onOptionsItemSelected(item))
-//            return true;
-//        else
-//            return super.onOptionsItemSelected(item);
-//    }
 }
