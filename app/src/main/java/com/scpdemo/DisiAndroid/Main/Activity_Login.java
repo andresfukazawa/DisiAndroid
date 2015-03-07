@@ -45,10 +45,8 @@ public class Activity_Login extends ActionBarActivity {
         setContentView(R.layout.activity_login);
 
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(R.string.app_name);
         getSupportActionBar().setSubtitle(R.string.login_title);
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setIcon(R.drawable.ic_launcher);
 
 
@@ -59,7 +57,7 @@ public class Activity_Login extends ActionBarActivity {
 
 
         txtUsuarioNombre.setText(getSharedPreferences(getPackageName(), MODE_PRIVATE).getString("Usuario",""));
-//        txtUsuarioPassword.setText(getSharedPreferences(getPackageName(), MODE_PRIVATE).getString("Clave",""));
+        txtUsuarioPassword.setText(getSharedPreferences(getPackageName(), MODE_PRIVATE).getString("Clave",""));
         try {
             DataBaseHelper dataBaseHelper = new DataBaseHelper(Activity_Login.this);
             dataBaseHelper.createDataBase();
@@ -140,7 +138,20 @@ public class Activity_Login extends ActionBarActivity {
             if (loginOk) {
                 SharedPreferences.Editor editor = getSharedPreferences(getPackageName(), MODE_PRIVATE).edit();
                 editor.putString("Usuario", txtUsuarioNombre.getText().toString());
+
                 editor.commit();
+
+                if(chkGuardar.isChecked()) {
+                    getSharedPreferences(getPackageName(), MODE_PRIVATE).edit()
+                            .putString("Clave", txtUsuarioPassword.getText().toString())
+                            .commit();
+                }
+
+                if(!chkGuardar.isChecked()) {
+                    getSharedPreferences(getPackageName(), MODE_PRIVATE).edit()
+                            .putString("Clave", "")
+                            .commit();
+                }
 
                 Intent intent = new Intent(Activity_Login.this, Activity_Main.class);
                 startActivityForResult(intent, 0);
