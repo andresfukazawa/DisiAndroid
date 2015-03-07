@@ -26,6 +26,7 @@
 
     <!-- STRING LOGIN -->
     <string name="login_title">Login</string>
+    <string name="login_fallido">Usuario y/o contraseña incorrecta</string>
 
     <!-- STRING USUARIO -->
     <string name="usuario_title_Lis">Lista de Usuarios</string>
@@ -52,5 +53,7 @@
 
     <string name="title_activity_activity_maps">activity_maps</string>
     <string name="title_activity_maps">MapsActivity</string>
+
+    <string name="en_construccion">Próximamente disponible</string>
 
 </resources>

@@ -154,7 +154,12 @@ public class Activity_Login extends ActionBarActivity {
                 }
 
                 Intent intent = new Intent(Activity_Login.this, Activity_Main.class);
-                startActivityForResult(intent, 0);
+//                startActivityForResult(intent, 0);
+                startActivity(intent);
+            } else {
+                Toast.makeText(Activity_Login.this, R.string.login_fallido, Toast.LENGTH_SHORT).show();
+                txtUsuarioPassword.setText("");
+                chkGuardar.setChecked(false);
             }
 
         }

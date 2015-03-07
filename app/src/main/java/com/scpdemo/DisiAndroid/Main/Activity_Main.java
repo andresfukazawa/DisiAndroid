@@ -122,20 +122,23 @@ public class Activity_Main extends ActionBarActivity {
 
                 switch(i) {
                     case 0:
-                        Intent intent = new Intent(Activity_Main.this,Activity_Mesa.class);
-                        startActivity(intent);
+                        Toast.makeText(getApplicationContext(), R.string.en_construccion, Toast.LENGTH_SHORT).show();
+//                        Intent intent = new Intent(Activity_Main.this,Activity_Mesa.class);
+//                        startActivity(intent);
                         break;
                     case 1:
-                        Intent intent2 = new Intent(Activity_Main.this,Activity_Mesa.class);
-                        startActivity(intent2);
+                        Toast.makeText(getApplicationContext(), R.string.en_construccion, Toast.LENGTH_SHORT).show();
+//                        Intent intent2 = new Intent(Activity_Main.this,Activity_Mesa.class);
+//                        startActivity(intent2);
                         break;
                     case 2:
                         Intent intent3 = new Intent(Activity_Main.this,Activity_Mesa.class);
                         startActivity(intent3);
                         break;
                     case 3:
-                        Intent intent4 = new Intent(Activity_Main.this,Activity_Mesa.class);
-                        startActivity(intent4);
+                        Toast.makeText(getApplicationContext(), R.string.en_construccion, Toast.LENGTH_SHORT).show();
+//                        Intent intent4 = new Intent(Activity_Main.this,Activity_Mesa.class);
+//                        startActivity(intent4);
                         break;
                     case 4:
                         Intent intent5 = new Intent(Activity_Main.this,MapsActivity.class);
@@ -215,8 +218,9 @@ public class Activity_Main extends ActionBarActivity {
     View.OnClickListener btnFacturarOnClickListener= new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent intent=new Intent(Activity_Main.this,Activity_Producto.class);
-            startActivityForResult(intent,0);
+            Toast.makeText(getApplicationContext(), R.string.en_construccion, Toast.LENGTH_SHORT).show();
+//            Intent intent=new Intent(Activity_Main.this,Activity_Producto.class);
+//            startActivityForResult(intent,0);
         }
     };
 
@@ -231,8 +235,9 @@ public class Activity_Main extends ActionBarActivity {
     View.OnClickListener btnReporteOnClickListener= new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent intent=new Intent(Activity_Main.this,Activity_Producto.class);
-            startActivityForResult(intent,0);
+            Toast.makeText(getApplicationContext(), R.string.en_construccion, Toast.LENGTH_SHORT).show();
+//            Intent intent=new Intent(Activity_Main.this,Activity_Producto.class);
+//            startActivityForResult(intent,0);
         }
     };
 
