@@ -22,6 +22,7 @@
     <!-- STRING DASHBOARD -->
     <string name="dashboard_title">Dashboard</string>
     <string name="dashboard_title_pedidos">Pedidos</string>
+    <string name="dashboard_title_mapa">Ubicación de franquicias</string>
 
     <!-- STRING LOGIN -->
     <string name="login_title">Login</string>

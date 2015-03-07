@@ -66,8 +66,8 @@
 
         <activity
             android:name="com.scpdemo.tab_control.MapsActivity"
-            android:label="@string/title_activity_maps" >
-        </activity>
+            android:label="@string/title_activity_maps"
+            android:parentActivityName=".Main.Activity_Main" />
 
         <meta-data
             android:name="com.google.android.gms.version"
