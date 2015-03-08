@@ -18,7 +18,6 @@ public class ClienteAdapter extends ArrayAdapter<Cliente> {
     public ClienteAdapter(Context context, int resource, List<Cliente> objects) {
         super(context, resource, objects);
     }
-
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         MainHolder mainHolder = null;
