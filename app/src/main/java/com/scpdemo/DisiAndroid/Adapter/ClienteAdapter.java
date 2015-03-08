@@ -29,7 +29,6 @@ public class ClienteAdapter extends ArrayAdapter<Cliente> {
             mainHolder.cl_itemRUC = (TextView) convertView.findViewById(R.id.cl_itemRUC);
             mainHolder.cl_itemNombre = (TextView) convertView.findViewById(R.id.cl_itemNombre);
             mainHolder.cl_foto = (ImageView)convertView.findViewById(R.id.foto);
-
             convertView.setTag(mainHolder);
         } else {
             mainHolder = (MainHolder) convertView.getTag();
