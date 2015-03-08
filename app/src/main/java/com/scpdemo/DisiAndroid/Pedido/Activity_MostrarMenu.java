@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -28,20 +29,23 @@ import java.util.ArrayList;
  */
 public class Activity_MostrarMenu extends ActionBarActivity {
 
-    private TextView tvMesa;
-    private EditText etFiltro;
-    private ListView lvMenu;
+    private TextView          tvMesa;
+    private EditText          etFiltro;
+    private ListView          lvMenu;
     private LVMainAdapter     mLVMainAdapter;
     private ArrayList<String> mLstString;
+    private Button            btOrdenar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mostrarmenu);
 
-        tvMesa   = (TextView)findViewById(R.id.tv_mm_SMMesa);
-        etFiltro = (EditText)findViewById(R.id.et_mm_SMFiltro);
-        lvMenu   = (ListView)findViewById(R.id.lv_mm_SMMenu);
+        tvMesa    = (TextView)findViewById(R.id.tv_mm_SMMesa);
+        etFiltro  = (EditText)findViewById(R.id.et_mm_SMFiltro);
+        lvMenu    = (ListView)findViewById(R.id.lv_mm_SMMenu);
+        btOrdenar = (Button)findViewById(R.id.bt_mm_Ordenar);
+
         populateList(getIntent().getExtras().getString("tipo"));
         mLVMainAdapter = new LVMainAdapter(Activity_MostrarMenu.this, 0, mLstString);
 
@@ -53,9 +57,27 @@ public class Activity_MostrarMenu extends ActionBarActivity {
 
         lvMenu.setAdapter(mLVMainAdapter);
         etFiltro.addTextChangedListener(etMenuTextWatcher);
+        btOrdenar.setOnClickListener(btOrdenarOnClick);
+        tvMesa.setText("Mesa " + getIntent().getExtras().getString("mesa"));
 
 //        lvMenu.setOnItemClickListener(lvMenuOnClick);
     }
+
+    View.OnClickListener btOrdenarOnClick = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            ContentValues cv = new ContentValues();
+            cv.put("MESADET", Integer.valueOf(getIntent().getExtras().getString("mesa")));
+            cv.put("DETPPRO", mLVMainAdapter.getItem(0).toString());
+            cv.put("DETPCAN", 1);
+            long temp = DataBaseHelper.myDataBase.insert("PEDIDO_DETALLE", null, cv);
+            Toast.makeText(Activity_MostrarMenu.this, String.valueOf(temp), Toast.LENGTH_SHORT).show();
+
+            Intent intent = new Intent();
+            setResult(RESULT_OK, intent);
+            finish();
+        }
+    };
 
     private void populateList(String tipo) {
         Cursor cursor = null;
@@ -97,19 +119,24 @@ public class Activity_MostrarMenu extends ActionBarActivity {
         }
     };
 
-    @Override
+    /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_platos, menu);
         menu.findItem(R.id.ic_action_add).setVisible(true);
         return super.onCreateOptionsMenu(menu);
-    }
+    }*/
 
-    @Override
+    /*@Override
     public boolean onOptionsItemSelected(MenuItem item) {
+//        Toast.makeText(Activity_MostrarMenu.this, "getCount() : " + mLVMainAdapter.getCount(), Toast.LENGTH_SHORT).show();
+
         switch (item.getItemId()) {
             case R.id.ic_action_add:
-                if (lvMenu.getCount() == 1) {
+//                mLVMainAdapter.get
+//                if (lvMenu.getCount() == 1) {
+                if (mLVMainAdapter.getCount() == 1) {
                     //if (mLVMenuAdapter.getCount() == 1) {
+//                    Toast.makeText(Activity_MostrarMenu.this, "getCount() : " + mLVMainAdapter.getCount(), Toast.LENGTH_SHORT).show();
                     ContentValues cv = new ContentValues();
                     cv.put("MESADET", Integer.valueOf(getIntent().getExtras().getString("mesa")));
                     cv.put("DETPPRO", mLVMainAdapter.getItem(0).toString());
@@ -124,7 +151,8 @@ public class Activity_MostrarMenu extends ActionBarActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
-    }
+
+    }*/
 
     /*ListView.OnItemClickListener lvMenuOnClick = new AdapterView.OnItemClickListener() {
         @Override
