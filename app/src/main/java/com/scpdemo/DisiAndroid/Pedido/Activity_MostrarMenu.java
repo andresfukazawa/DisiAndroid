@@ -10,6 +10,8 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -51,6 +53,8 @@ public class Activity_MostrarMenu extends ActionBarActivity {
 
         lvMenu.setAdapter(mLVMainAdapter);
         etFiltro.addTextChangedListener(etMenuTextWatcher);
+
+//        lvMenu.setOnItemClickListener(lvMenuOnClick);
     }
 
     private void populateList(String tipo) {
@@ -112,10 +116,6 @@ public class Activity_MostrarMenu extends ActionBarActivity {
                     cv.put("DETPCAN", 1);
                     long temp = DataBaseHelper.myDataBase.insert("PEDIDO_DETALLE", null, cv);
                     Toast.makeText(Activity_MostrarMenu.this, String.valueOf(temp), Toast.LENGTH_SHORT).show();
-//                    Cursor cursor = null;
-//                    cursor = DataBaseHelper.myDataBase.query("PEDIDO_DETALLE", null, "idx=?", new String[]{String.valueOf(temp - 1)}, null, null, null);
-//                    cursor.moveToFirst();
-//                    if (cursor != null) cursor.close();
 
                     Intent intent = new Intent();
                     setResult(RESULT_OK, intent);
@@ -125,4 +125,12 @@ public class Activity_MostrarMenu extends ActionBarActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
+
+    /*ListView.OnItemClickListener lvMenuOnClick = new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            String data=(String)parent.getItemAtPosition(position);
+            etFiltro.setText(data);
+        }
+    };*/
 }
