@@ -20,9 +20,12 @@ import com.scpdemo.DisiAndroid.DAO.DataBaseHelper;
 import com.scpdemo.DisiAndroid.DAO.UsuarioDAO;
 import com.scpdemo.DisiAndroid.Entities.Usuario;
 import com.scpdemo.DisiAndroid.R;
-import com.scpdemo.DisiAndroid.Util.Funciones;
+import com.scpdemo.DisiAndroid.Util.ConfirmacionDialogfragment;
 
-public class Activity_Usuario extends ActionBarActivity {
+import java.security.MessageDigest;
+
+
+public class Activity_Usuario extends ActionBarActivity  implements ConfirmacionDialogfragment.ConfirmacionDialogfragmentListener{
     private Context context;
 
     EditText us_etCodigo, us_etNombre,us_etemail,us_etPassword;
@@ -30,11 +33,13 @@ public class Activity_Usuario extends ActionBarActivity {
 
     private UsuarioDAO usuarioDAO = new UsuarioDAO();
     private Usuario usuario=null;
-    private Funciones Validar=new Funciones();
+
 
     private Integer Accion=0;
     private Integer Inactivo=0;
     private Integer MAX_VALOR=0;
+    private Integer AlertDialog=0;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -57,15 +62,30 @@ public class Activity_Usuario extends ActionBarActivity {
 
 
         try{
+            us_etCodigo.requestFocus();
             DataBaseHelper dataBaseHelper = new DataBaseHelper(Activity_Usuario.this);
             dataBaseHelper.createDataBase();
             dataBaseHelper.openDataBase();
 
-            MAX_VALOR=usuarioDAO.USUARIO_MAX()+1;
-            us_etCodigo.setText(String.valueOf(MAX_VALOR));
+            Integer ID=Integer.valueOf(getIntent().getExtras().getString("s_usuacod"));
+            if (ID>0){
+                Accion=1;
+            }
+
+            if (Accion==0){
+                MAX_VALOR=usuarioDAO.USUARIO_MAX()+1;
+                us_etCodigo.setText(String.valueOf(MAX_VALOR));
+
+            }  else{
+                us_etCodigo.setText(getIntent().getExtras().getString("s_usuacod"));
+                us_etNombre.setText(getIntent().getExtras().getString("s_usuanom"));
+                us_etPassword.setText(getIntent().getExtras().getString("s_usuacla"));
+                us_etemail.setText(getIntent().getExtras().getString("s_usuamai"));
+                us_chkEstado.setChecked(Boolean.valueOf(getIntent().getExtras().getString("s_usuaina")));
+            }
 
         }catch (Exception ex){
-            Toast.makeText(Activity_Usuario.this, "No se pudo copiar la BD", Toast.LENGTH_SHORT).show();
+            Toast.makeText(Activity_Usuario.this, R.string.mensaje_conexion, Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -79,69 +99,16 @@ public class Activity_Usuario extends ActionBarActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         try{
-            if (us_chkEstado.isChecked()) {
-                Inactivo = 1;
+            switch (item.getItemId()) {
+                case R.id.ic_action_save:
+                    ConfirmacionDialogfragment confirmacionDialogfragment = new ConfirmacionDialogfragment();
+                    confirmacionDialogfragment.setmConfirmacionDialogfragmentListener(Activity_Usuario.this);
+                    confirmacionDialogfragment.show(getSupportFragmentManager(), confirmacionDialogfragment.TAG);
+
+                default:
+                    return super.onOptionsItemSelected(item);
             }
-            if (!us_chkEstado.isChecked()) {
-                Inactivo = 0;
-            }
-            if (OKData() == true) {
-                switch (item.getItemId()) {
-                    case R.id.ic_action_save:
-                   /*
-                    Intent intent = new Intent();
-                    setResult(RESULT_OK, intent);
-                    finish();
-                    */
-                        //GUARDAMOS
-                        if (Accion == 0) {
-                            //if (Validar.Confirma_Guardar(Activity_Mesa.this)==1){
-                            Intent intent = new Intent();
-                            usuario=new Usuario();
-                            usuario.setUSUACOD(Integer.valueOf(us_etCodigo.getText().toString()));
-                            usuario.setUSUADES(us_etNombre.getText().toString());
-                            usuario.setUSUACLAV(us_etPassword.getText().toString());
-                            usuario.setUSUAMAIL(us_etemail.getText().toString());
-                            usuario.setUSUAINA(Integer.valueOf(Inactivo));
-                            usuarioDAO.insertUsuario(usuario);
-                            setResult(RESULT_OK, intent);
-                            finish();
-                            //}
 
-                        }
-
-                        //ACTUALIZAMOS
-                        if (Accion == 1) {
-                            Intent intent = new Intent();
-                            usuario = new Usuario();
-                            usuario.setUSUACOD(Integer.valueOf(us_etCodigo.getText().toString()));
-                            usuario.setUSUADES(us_etNombre.getText().toString());
-                            usuario.setUSUACLAV(us_etPassword.getText().toString());
-                            usuario.setUSUAMAIL(us_etemail.getText().toString());
-
-                            usuario.setUSUAINA(Integer.valueOf(Inactivo));
-                            usuarioDAO.updateUsuario(usuario);
-
-                            setResult(RESULT_OK, intent);
-                            finish();
-                        }
-
-                        //ELIMINAR
-                        if (Accion == 3) {
-                            usuario = new Usuario();
-                            usuario.setUSUACOD(Integer.valueOf(us_etCodigo.getText().toString()));
-                            usuarioDAO.deleteUsuario(usuario);
-
-                            Intent intent = new Intent();
-                            setResult(RESULT_OK, intent);
-                            finish();
-                        }
-
-
-                    default:
-                        return super.onOptionsItemSelected(item);
-                }
-            }
         }
         catch(Exception ex){
             Toast.makeText(context, ex.toString(), Toast.LENGTH_LONG).show();
@@ -152,21 +119,16 @@ public class Activity_Usuario extends ActionBarActivity {
 
     public Boolean OKData(){
         Vibrator vibrator = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
-        Toast toastCodigo = Toast.makeText(getApplicationContext(),"Ingrese el nombre de usuario",Toast.LENGTH_SHORT);
-        Toast toastNombre = Toast.makeText(getApplicationContext(),"Ingrese su password",Toast.LENGTH_SHORT);
-        Toast toastClave = Toast.makeText(getApplicationContext(),"Ingrese el nombre de usuario",Toast.LENGTH_SHORT);
-        Toast toastEmail = Toast.makeText(getApplicationContext(),"Ingrese su password",Toast.LENGTH_SHORT);
-
-
         if(us_etCodigo.getText().toString().equals("")){
+            Toast toastCodigo = Toast.makeText(getApplicationContext(),R.string.usuario_val_codigo,Toast.LENGTH_SHORT);
             toastCodigo.show();
             vibrator.vibrate(200);
             us_etCodigo.requestFocus();
             return false;
         }
 
-
         if(us_etNombre.getText().toString().equals("")){
+            Toast toastNombre = Toast.makeText(getApplicationContext(),R.string.usuario_val_nombre,Toast.LENGTH_SHORT);
             toastNombre.show();
             vibrator.vibrate(200);
             us_etNombre.requestFocus();
@@ -174,6 +136,7 @@ public class Activity_Usuario extends ActionBarActivity {
         }
 
         if(us_etemail.getText().toString().equals("")){
+            Toast toastEmail = Toast.makeText(getApplicationContext(),R.string.usuario_val_email,Toast.LENGTH_SHORT);
             toastEmail.show();
             vibrator.vibrate(200);
             us_etemail.requestFocus();
@@ -181,6 +144,7 @@ public class Activity_Usuario extends ActionBarActivity {
         }
 
         if(us_etPassword.getText().toString().equals("")){
+            Toast toastClave = Toast.makeText(getApplicationContext(),R.string.usuario_val_clave,Toast.LENGTH_SHORT);
             toastClave.show();
             vibrator.vibrate(200);
             us_etPassword.requestFocus();
@@ -190,4 +154,62 @@ public class Activity_Usuario extends ActionBarActivity {
         return true;
     }
 
+    @Override
+    public void onConfirmacionSI() {
+        if (OKData() == true) {
+            if (us_chkEstado.isChecked()) {
+                Inactivo = 1;
+            }
+
+            if (!us_chkEstado.isChecked()) {
+                Inactivo = 0;
+            }
+
+            //GUARDAMOS
+            if (Accion == 0) {
+                Intent intent = new Intent();
+                usuario=new Usuario();
+                usuario.setUSUACOD(Integer.valueOf(us_etCodigo.getText().toString()));
+                usuario.setUSUADES(us_etNombre.getText().toString());
+                usuario.setUSUACLAV(us_etPassword.getText().toString());
+                usuario.setUSUAMAIL(us_etemail.getText().toString());
+                usuario.setUSUAINA(Integer.valueOf(Inactivo));
+                usuarioDAO.insertUsuario(usuario);
+                setResult(RESULT_OK, intent);
+                finish();
+            }
+
+            //ACTUALIZAMOS
+            if (Accion == 1) {
+                Intent intent = new Intent();
+                usuario = new Usuario();
+                usuario.setUSUACOD(Integer.valueOf(us_etCodigo.getText().toString()));
+                usuario.setUSUADES(us_etNombre.getText().toString());
+                usuario.setUSUACLAV(us_etPassword.getText().toString());
+                usuario.setUSUAMAIL(us_etemail.getText().toString());
+
+                usuario.setUSUAINA(Integer.valueOf(Inactivo));
+                usuarioDAO.updateUsuario(usuario);
+
+                setResult(RESULT_OK, intent);
+                finish();
+            }
+        }
+
+        //ELIMINAR
+        if (Accion == 3) {
+            usuario = new Usuario();
+            usuario.setUSUACOD(Integer.valueOf(us_etCodigo.getText().toString()));
+            usuarioDAO.deleteUsuario(usuario);
+
+            Intent intent = new Intent();
+            setResult(RESULT_OK, intent);
+            finish();
+        }
+    }
+
+    @Override
+    public void onConfirmacionNO() {
+
+    }
 }

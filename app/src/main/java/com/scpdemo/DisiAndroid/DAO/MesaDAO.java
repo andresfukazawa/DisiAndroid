@@ -3,13 +3,15 @@ package com.scpdemo.DisiAndroid.DAO;
 import android.content.ContentValues;
 import android.database.Cursor;
 import com.scpdemo.DisiAndroid.Entities.Mesa;
+import com.scpdemo.DisiAndroid.R;
+
 import java.util.ArrayList;
 
 /**
  * Created by Renan on 25/02/2015.
  */
 public class MesaDAO {
-    public ArrayList<String> mLstString;
+       public  ArrayList<Mesa> lstMesa = null;
 
     public int MESA_MAX() {
         Integer MaxID=0;
@@ -34,14 +36,19 @@ public class MesaDAO {
 
     public void Mesa_PopulateList() {
         Cursor cursor = null;
-        mLstString = new ArrayList<>();
-        try{
-            cursor = DataBaseHelper.myDataBase.query("MESAS", null,null,null, null, null, "MESADES");
-            if(cursor.moveToFirst()) {
-                do {
-                    //mLstString.add(cursor.isNull(cursor.getColumnIndex("MESACOD")) ? "" : cursor.getString(cursor.getColumnIndex("MESACOD")));
-                    mLstString.add(cursor.isNull(cursor.getColumnIndex("MESADES")) ? "" : cursor.getString(cursor.getColumnIndex("MESADES")));
+        Mesa mesa = null;
+        try {
 
+            cursor = DataBaseHelper.myDataBase.query("MESAs", null, null, null, null, null, "MESADES");
+            lstMesa = new ArrayList<Mesa>();
+            lstMesa.clear();
+            if (cursor.moveToFirst()) {
+                do {
+                    mesa = new Mesa();
+                    mesa.setMESACOD(cursor.isNull(cursor.getColumnIndex("MESACOD")) ? 0 : cursor.getInt(cursor.getColumnIndex("MESACOD")));
+                    mesa.setMESADES(cursor.isNull(cursor.getColumnIndex("MESADES")) ? "" : cursor.getString(cursor.getColumnIndex("MESADES")));
+                    mesa.setMESAINA(cursor.isNull(cursor.getColumnIndex("MESAINA")) ? 0 : cursor.getInt(cursor.getColumnIndex("MESAINA")));
+                    lstMesa.add(new Mesa(mesa.getMESACOD(), mesa.getMESADES(),mesa.getMESAINA(), R.drawable.mesa));
                 } while (cursor.moveToNext());
             }
 
@@ -52,6 +59,8 @@ public class MesaDAO {
                 cursor.close();
         }
     }
+
+
 
     public Mesa getMESACODById(int MESACOD) {
         Cursor cursor = null;

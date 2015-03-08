@@ -19,12 +19,14 @@ import com.scpdemo.DisiAndroid.DAO.DataBaseHelper;
 import com.scpdemo.DisiAndroid.Entities.Mesa;
 import android.content.Context;
 import com.scpdemo.DisiAndroid.R;
+import com.scpdemo.DisiAndroid.Util.ConfirmacionDialogfragment;
 import com.scpdemo.DisiAndroid.Util.Funciones;
+
 
 /**
  * Created by Renan on 24/02/2015.
  */
-public class Activity_Mesa extends ActionBarActivity {
+public class Activity_Mesa extends ActionBarActivity implements ConfirmacionDialogfragment.ConfirmacionDialogfragmentListener {
     private Context context;
 
     private EditText me_etCodigo,me_etNombre;
@@ -54,19 +56,28 @@ public class Activity_Mesa extends ActionBarActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setIcon(R.drawable.ic_launcher);
 
-       //String N1 = getIntent().getExtras().getString("N1");
-       //Toast.makeText(context, "CARGO: ", Toast.LENGTH_LONG).show();
-
         try{
             DataBaseHelper dataBaseHelper = new DataBaseHelper(Activity_Mesa.this);
             dataBaseHelper.createDataBase();
             dataBaseHelper.openDataBase();
 
-            MAX_VALOR=mesaDAO.MESA_MAX()+1;
-            me_etCodigo.setText(String.valueOf(MAX_VALOR));
+            Integer ID=Integer.valueOf(getIntent().getExtras().getString("s_mesacod"));
+            if (ID>0){
+                Accion=1;
+            }
+
+            if (Accion==0){
+                MAX_VALOR=mesaDAO.MESA_MAX()+1;
+                me_etCodigo.setText(String.valueOf(MAX_VALOR));
+
+            }  else{
+                me_etCodigo.setText(getIntent().getExtras().getString("s_mesacod"));
+                me_etNombre.setText(getIntent().getExtras().getString("s_mesanom"));
+                me_chkEstado.setChecked(Boolean.valueOf(getIntent().getExtras().getString("s_mesaina")));
+            }
 
         }catch (Exception ex){
-            Toast.makeText(Activity_Mesa.this, "No se pudo copiar la BD", Toast.LENGTH_SHORT).show();
+            Toast.makeText(Activity_Mesa.this, R.string.mensaje_conexion, Toast.LENGTH_SHORT).show();
         }
 
 
@@ -81,91 +92,17 @@ public class Activity_Mesa extends ActionBarActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         try{
-            if (me_chkEstado.isChecked()) {
-                Inactivo = 1;
-            }
-            if (!me_chkEstado.isChecked()) {
-                Inactivo = 0;
-            }
-        if (OKData() == true) {
+
             switch (item.getItemId()) {
                 case R.id.ic_action_save:
-                   /*
-                    Intent intent = new Intent();
-                    setResult(RESULT_OK, intent);
-                    finish();
-                    */
-                    //GUARDAMOS
-                    if (Accion == 0) {
-                        //if (Validar.Confirma_Guardar(Activity_Mesa.this)==1){
-                           Intent intent = new Intent();
-                            mesa=new Mesa();
-                            mesa.setMESACOD(Integer.valueOf(me_etCodigo.getText().toString()));
-                            mesa.setMESADES(me_etNombre.getText().toString());
-                            mesa.setMESAINA(Integer.valueOf(Inactivo));
-                            mesaDAO.insertMesa(mesa);
-                            setResult(RESULT_OK, intent);
-                            finish();
-                        //}
-
-                      /*
-                        AlertDialog.Builder builder =new AlertDialog.Builder(context);
-                        builder.setMessage("¿Confirma la acción seleccionada?")
-                                .setTitle("Confirmacion")
-                                .setPositiveButton("Aceptar", new DialogInterface.OnClickListener()  {
-                                    public void onClick(DialogInterface dialog, int id) {
-                                        Intent intent = new Intent();
-                                        mesa=new Mesa();
-                                        mesa.setMESACOD(Integer.valueOf(me_etCodigo.getText().toString()));
-                                        mesa.setMESADES(me_etNombre.getText().toString());
-                                        mesa.setMESAINA(Integer.valueOf(Inactivo));
-                                        mesaDAO.insertMesa(mesa);
-                                        setResult(RESULT_OK, intent);
-                                        finish();
-                                        dialog.cancel();
-                                    }
-                                })
-                                .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
-                                    public void onClick(DialogInterface dialog, int id) {
-                                        Log.i("Dialogos", "Confirmacion Cancelada.");
-                                        dialog.cancel();
-                                    }
-                                });
-                        */
-                           }
-
-                    //ACTUALIZAMOS
-                    if (Accion == 1) {
-                        Intent intent = new Intent();
-                        mesa = new Mesa();
-                        mesa.setMESACOD(Integer.valueOf(me_etCodigo.getText().toString()));
-                        mesa.setMESADES(me_etNombre.getText().toString());
-                        mesa.setMESAINA(Integer.valueOf(Inactivo));
-                        mesaDAO.updateMesa(mesa);
-
-                        setResult(RESULT_OK, intent);
-                        finish();
-                    }
-
-                    //ELIMINAR
-                    if (Accion == 3) {
-                        mesa = new Mesa();
-                        mesa.setMESACOD(Integer.valueOf(me_etCodigo.getText().toString()));
-                        mesaDAO.deleteMesa(mesa);
-
-
-                        Toast.makeText(context, "Resultado: " , Toast.LENGTH_LONG).show();
-
-                        Intent intent = new Intent();
-                        setResult(RESULT_OK, intent);
-                        finish();
-                    }
-
+                    ConfirmacionDialogfragment confirmacionDialogfragment = new ConfirmacionDialogfragment();
+                    confirmacionDialogfragment.setmConfirmacionDialogfragmentListener(Activity_Mesa.this);
+                    confirmacionDialogfragment.show(getSupportFragmentManager(), confirmacionDialogfragment.TAG);
 
                 default:
                     return super.onOptionsItemSelected(item);
-             }
-           }
+            }
+
         }
         catch(Exception ex){
             Toast.makeText(context, ex.toString(), Toast.LENGTH_LONG).show();
@@ -176,16 +113,16 @@ public class Activity_Mesa extends ActionBarActivity {
 
     public Boolean OKData(){
         Vibrator vibrator = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
-        Toast toastCodigo = Toast.makeText(getApplicationContext(),"Ingrese el nombre de usuario",Toast.LENGTH_SHORT);
-        Toast toastNombre = Toast.makeText(getApplicationContext(),"Ingrese su password",Toast.LENGTH_SHORT);
 
         if(me_etCodigo.getText().toString().equals("")){
+            Toast toastCodigo = Toast.makeText(getApplicationContext(),R.string.mesa_val_codigo,Toast.LENGTH_SHORT);
             toastCodigo.show();
             vibrator.vibrate(200);
             me_etCodigo.requestFocus();
             return false;
         }
         if(me_etNombre.getText().toString().equals("")){
+            Toast toastNombre = Toast.makeText(getApplicationContext(),R.string.mesa_val_nombre,Toast.LENGTH_SHORT);
             toastNombre.show();
             vibrator.vibrate(200);
             me_etNombre.requestFocus();
@@ -194,4 +131,58 @@ public class Activity_Mesa extends ActionBarActivity {
         return true;
     }
 
+    @Override
+    public void onConfirmacionSI() {
+        if (OKData() == true) {
+            if (me_chkEstado.isChecked()) {
+                Inactivo = 1;
+            }
+            if (!me_chkEstado.isChecked()) {
+                Inactivo = 0;
+            }
+
+            //GUARDAMOS
+            if (Accion == 0) {
+                Intent intent = new Intent();
+                mesa=new Mesa();
+                mesa.setMESACOD(Integer.valueOf(me_etCodigo.getText().toString()));
+                mesa.setMESADES(me_etNombre.getText().toString());
+                mesa.setMESAINA(Integer.valueOf(Inactivo));
+                mesaDAO.insertMesa(mesa);
+                setResult(RESULT_OK, intent);
+                finish();
+            }
+
+            //ACTUALIZAMOS
+            if (Accion == 1) {
+                Intent intent = new Intent();
+                mesa = new Mesa();
+                mesa.setMESACOD(Integer.valueOf(me_etCodigo.getText().toString()));
+                mesa.setMESADES(me_etNombre.getText().toString());
+                mesa.setMESAINA(Integer.valueOf(Inactivo));
+                mesaDAO.updateMesa(mesa);
+
+                setResult(RESULT_OK, intent);
+                finish();
+            }
+        }
+        //ELIMINAR
+        if (Accion == 3) {
+            mesa = new Mesa();
+            mesa.setMESACOD(Integer.valueOf(me_etCodigo.getText().toString()));
+            mesaDAO.deleteMesa(mesa);
+
+
+            Toast.makeText(context, "Resultado: " , Toast.LENGTH_LONG).show();
+
+            Intent intent = new Intent();
+            setResult(RESULT_OK, intent);
+            finish();
+        }
+    }
+
+    @Override
+    public void onConfirmacionNO() {
+        Toast.makeText(Activity_Mesa.this,"Preciono no salir",Toast.LENGTH_SHORT).show();
+    }
 }

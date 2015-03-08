@@ -1,31 +1,34 @@
 package com.scpdemo.DisiAndroid.Entities;
 
+import java.io.Serializable;
+
 /**
  * Created by Renan on 20/02/2015.
  */
 public class Cliente {
-    private int    IDCLIET;
+    private int CLIECOD;
     private String CLIERUC;
     private String CLIENOM;
     private String CLIEFECR;
     private String CLIEUSUR;
     private int CLIEINA;
+    private int FOTO;
 
-    public Cliente(int IDCLIET, String CLIERUC, String CLIENOM, String CLIEFECR, String CLIEUSUR, int CLIEINA) {
-        this.IDCLIET = IDCLIET;
+    public Cliente() {}
+
+    public Cliente(int CLIECOD, String CLIERUC, String CLIENOM,int FOTO) {
+        this.CLIECOD = CLIECOD;
         this.CLIERUC = CLIERUC;
         this.CLIENOM = CLIENOM;
-        this.CLIEFECR = CLIEFECR;
-        this.CLIEUSUR = CLIEUSUR;
-        this.CLIEINA = CLIEINA;
+        this.FOTO = FOTO;
     }
 
-    public int getIDCLIET() {
-        return IDCLIET;
+    public int getCLIECOD() {
+        return CLIECOD;
     }
 
-    public void setIDCLIET(int IDCLIET) {
-        this.IDCLIET = IDCLIET;
+    public void setCLIECOD(int CLIECOD) {
+        this.CLIECOD = CLIECOD;
     }
 
     public String getCLIERUC() {
@@ -67,4 +70,13 @@ public class Cliente {
     public void setCLIEINA(int CLIEINA) {
         this.CLIEINA = CLIEINA;
     }
+
+    public int getFOTO() {
+        return FOTO;
+    }
+
+    public void setFOTO(int FOTO) {
+        this.FOTO = FOTO;
+    }
 }
+

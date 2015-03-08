@@ -7,11 +7,12 @@ import java.io.Serializable;
  */
 public class Usuario implements Serializable {
 
-  private int  USUACOD;
-  private String  USUADES;
-  private String  USUACLAV;
-  private String USUAMAIL;
-  private int  USUAINA;
+    private int  USUACOD;
+    private String  USUADES;
+    private String  USUACLAV;
+    private String USUAMAIL;
+    private int  USUAINA;
+    private int  FOTO;
 
     public Usuario() {
 
@@ -21,12 +22,13 @@ public class Usuario implements Serializable {
         this.USUADES = USUADES;
     }
 
-    public Usuario(int USUACOD, String USUADES, String USUACLAV, String USUMAAIL, int USUAINA) {
+    public Usuario(int USUACOD, String USUADES, String USUACLAV, String USUAMAIL, int USUAINA,int FOTO) {
         this.USUACOD = USUACOD;
         this.USUADES = USUADES;
         this.USUACLAV = USUACLAV;
         this.USUAMAIL = USUAMAIL;
         this.USUAINA = USUAINA;
+        this.FOTO=FOTO;
     }
 
     public int getUSUACOD() {
@@ -67,6 +69,14 @@ public class Usuario implements Serializable {
 
     public void setUSUAINA(int USUAINA) {
         this.USUAINA = USUAINA;
+    }
+
+    public int getFOTO() {
+        return FOTO;
+    }
+
+    public void setFOTO(int FOTO) {
+        this.FOTO = FOTO;
     }
 }
 

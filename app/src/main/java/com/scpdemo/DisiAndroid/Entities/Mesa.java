@@ -7,28 +7,19 @@ import java.io.Serializable;
  */
 public class Mesa implements Serializable{
 
-  private int  MESACOD;
-  private String  MESADES;
-  private int MESAINA;
+    private int  MESACOD;
+    private String  MESADES;
+    private int MESAINA;
+    private int FOTO;
 
     public Mesa() {   }
 
-    /*
-    public Mesa(String MESADES) {
-        this.MESADES = MESADES;
-    }*/
-
-    public Mesa(String MESADES) {
+    public Mesa(int MESACOD, String MESADES, int MESAINA,int FOTO) {
         this.MESACOD = MESACOD;
         this.MESADES = MESADES;
         this.MESAINA = MESAINA;
+        this.FOTO = FOTO;
     }
-
-  public Mesa(int MESACOD, String MESADES, int MESAINA) {
-        this.MESACOD = MESACOD;
-       this.MESADES = MESADES;
-       this.MESAINA = MESAINA;
-   }
 
     public int getMESACOD() {
         return MESACOD;
@@ -53,4 +44,13 @@ public class Mesa implements Serializable{
     public void setMESAINA(int MESAINA) {
         this.MESAINA = MESAINA;
     }
+
+    public int getFOTO() {
+        return FOTO;
+    }
+
+    public void setFOTO(int FOTO) {
+        this.FOTO = FOTO;
+    }
+
 }

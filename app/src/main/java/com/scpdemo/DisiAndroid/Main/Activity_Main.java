@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.scpdemo.DisiAndroid.Activity_Busqueda;
 import com.scpdemo.DisiAndroid.Adapter.ListViewAdapter;
+import com.scpdemo.DisiAndroid.Clientes.Activity_Clientes_List;
 import com.scpdemo.DisiAndroid.Mesa.Activity_Mesa;
 import com.scpdemo.DisiAndroid.Mesa.Activity_Mesa_Lis;
 import com.scpdemo.DisiAndroid.Pedido.Activity_Pedido;
@@ -122,23 +123,20 @@ public class Activity_Main extends ActionBarActivity {
 
                 switch(i) {
                     case 0:
-                        Toast.makeText(getApplicationContext(), R.string.en_construccion, Toast.LENGTH_SHORT).show();
-//                        Intent intent = new Intent(Activity_Main.this,Activity_Mesa.class);
-//                        startActivity(intent);
+                         Intent intentUsuarios = new Intent(Activity_Main.this,Activity_Usuario_List.class);
+                         startActivity(intentUsuarios);
                         break;
                     case 1:
-                        Toast.makeText(getApplicationContext(), R.string.en_construccion, Toast.LENGTH_SHORT).show();
-//                        Intent intent2 = new Intent(Activity_Main.this,Activity_Mesa.class);
-//                        startActivity(intent2);
+                        Intent intentClientes = new Intent(Activity_Main.this,Activity_Clientes_List.class);
+                        startActivity(intentClientes);
                         break;
                     case 2:
-                        Intent intent3 = new Intent(Activity_Main.this,Activity_Mesa.class);
-                        startActivity(intent3);
+                        Intent intentMesas = new Intent(Activity_Main.this,Activity_Mesa_Lis.class);
+                        startActivity(intentMesas);
                         break;
                     case 3:
                         Toast.makeText(getApplicationContext(), R.string.en_construccion, Toast.LENGTH_SHORT).show();
-//                        Intent intent4 = new Intent(Activity_Main.this,Activity_Mesa.class);
-//                        startActivity(intent4);
+//
                         break;
                     case 4:
                         Intent intent5 = new Intent(Activity_Main.this,MapsActivity.class);
@@ -185,7 +183,7 @@ public class Activity_Main extends ActionBarActivity {
     View.OnClickListener btnClienteOnClickListener= new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent intent=new Intent(Activity_Main.this,Activity_Swipe.class);
+            Intent intent=new Intent(Activity_Main.this,Activity_Clientes_List.class);
             startActivityForResult(intent,0);
         }
     };

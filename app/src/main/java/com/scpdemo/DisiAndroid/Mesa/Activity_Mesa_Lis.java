@@ -5,13 +5,18 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AbsListView;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.scpdemo.DisiAndroid.Adapter.MesaAdapter;
+import com.scpdemo.DisiAndroid.Clientes.Activity_Clientes;
 import com.scpdemo.DisiAndroid.DAO.DataBaseHelper;
 import com.scpdemo.DisiAndroid.DAO.MesaDAO;
+import com.scpdemo.DisiAndroid.Entities.Mesa;
 import com.scpdemo.DisiAndroid.R;
 
 import java.util.ArrayList;
@@ -24,12 +29,9 @@ public class Activity_Mesa_Lis extends ActionBarActivity {
     private final int RequestCode = 1;
     private boolean isAdd = false;
 
-    private MesaDAO mesaDAO = new MesaDAO();
-   // private Mesa mesa=null;
-
     private ListView lvMesa;
-    private MesaAdapter mesaAdapter=null;
-    public ArrayList<String> mLstString;
+    private MesaAdapter mesaAdapter = null;
+    private MesaDAO mesaDAO = new MesaDAO();
 
     /*
     Activa la back Navigation cuando el extends es a Una Activity
@@ -59,14 +61,15 @@ public class Activity_Mesa_Lis extends ActionBarActivity {
             dataBaseHelper.createDataBase();
             dataBaseHelper.openDataBase();
 
-
             mesaDAO.Mesa_PopulateList();
-            mesaAdapter = new MesaAdapter(Activity_Mesa_Lis.this, 0, mesaDAO.mLstString);
+            mesaAdapter = new MesaAdapter(Activity_Mesa_Lis.this, 0, mesaDAO.lstMesa);
             mesaAdapter.notifyDataSetChanged();
             lvMesa.setAdapter(mesaAdapter);
 
+            lvMesa.setOnItemClickListener(lvMesaOnItemClickListener);
+
         }catch (Exception ex){
-            Toast.makeText(Activity_Mesa_Lis.this, ex.toString() , Toast.LENGTH_SHORT).show();
+            Toast.makeText(Activity_Mesa_Lis.this, R.string.mensaje_conexion, Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -84,12 +87,9 @@ public class Activity_Mesa_Lis extends ActionBarActivity {
             case R.id.ic_action_add:
                 isAdd = true;
                 //invalidateOptionsMenu();
-
                 Intent intent = new Intent(Activity_Mesa_Lis.this, Activity_Mesa.class);
-                //intent.putExtra("N1",tvMainTextA.getText().toString());
-                //intent.putExtra("N2",tvMainTextB.getText().toString());
+                intent.putExtra("s_mesacod", "0");
                 startActivityForResult(intent,1);
-
                 return true;
            /* case R.id.ic_action_save:
                 isAdd = false;
@@ -102,6 +102,18 @@ public class Activity_Mesa_Lis extends ActionBarActivity {
         }
     }
 
+    AbsListView.OnItemClickListener lvMesaOnItemClickListener = new AbsListView.OnItemClickListener(){
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            Mesa mesa = mesaAdapter.getItem(position);
+            Intent intent=new Intent(Activity_Mesa_Lis.this,Activity_Mesa.class);
+
+            intent.putExtra("s_mesacod", String.valueOf(mesaAdapter.getItem(position).getMESACOD()));
+            intent.putExtra("s_mesanom", mesaAdapter.getItem(position).getMESADES().toString());
+            intent.putExtra("s_mesaina",String.valueOf(mesaAdapter.getItem(position).getMESAINA()));
+            startActivityForResult(intent,1);
+        }
+    };
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -111,22 +123,16 @@ public class Activity_Mesa_Lis extends ActionBarActivity {
             if (resultCode == RESULT_OK) {
                 //tvMainTextA.setText(data.getStringExtra("TextA"));
                 mesaDAO.Mesa_PopulateList();
-                mesaAdapter = new MesaAdapter(Activity_Mesa_Lis.this, 0, mesaDAO.mLstString);
+                mesaAdapter = new MesaAdapter(Activity_Mesa_Lis.this, 0, mesaDAO.lstMesa);
                 mesaAdapter.notifyDataSetChanged();
                 lvMesa.setAdapter(mesaAdapter);
             } else {
                 //tvMainTextA.setText("Canceló");
-                //tvMainTextB.setText("El usuario");
+
             }
         }
     }
 
-    //    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.menu_main, menu);
-//        return true;
-//    }
 }
 
 

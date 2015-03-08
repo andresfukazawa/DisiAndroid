@@ -14,35 +14,34 @@
         />
 
     <TextView
-        android:id="@+id/me_itemcodigo"
+        android:id="@+id/cl_itemCodigo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="New Text"
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/foto"
         android:textAppearance="@android:style/TextAppearance.Holo.Small"
-        />
-
-    <TextView
-        android:id="@+id/me_itemnombre"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="New Text"
-        android:layout_below="@+id/me_itemcodigo"
-        android:layout_toRightOf="@+id/foto"
-        android:textStyle="bold"
-        />
-
-    <TextView
-        android:id="@+id/me_itemestado"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="New Text"
-        android:layout_below="@+id/me_itemnombre"
-        android:layout_toRightOf="@+id/foto"
         android:visibility="invisible"
         />
 
+        <TextView
+            android:id="@+id/cl_itemRUC"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:layout_below="@+id/cl_itemCodigo"
+            android:layout_toRightOf="@+id/foto"
+            android:textStyle="bold"
+         />
 
+        <TextView
+            android:id="@+id/cl_itemNombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:layout_below="@+id/cl_itemRUC"
+            android:layout_toRightOf="@+id/foto"
+            android:layout_alignParentBottom="true"
+          />
 
 </RelativeLayout>

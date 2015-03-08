@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string name="mensaje_conexion">No se pudo copiar la base de datos(no se pudo abrir la conexión)</string>
+    <string name="dialog_save">¿Esta seguro de Guardar?</string>
+    <string name="dialog_delete">¿Esta seguro de eliminar el registro?</string>
+
     <string name="app_name">RESTOBAR</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
@@ -28,12 +32,21 @@
     <string name="login_title">Login</string>
     <string name="login_fallido">Usuario y/o contraseña incorrecta</string>
 
-    <!-- STRING USUARIO -->
+    <!--STRING USUARIO-->
     <string name="usuario_title_Lis">Lista de Usuarios</string>
     <string name="usuario_title">Registro de Usuarios</string>
     <string name="us_Estado">Inactivo</string>
 
-    <!-- STRING MESA -->
+
+    <!--mensajes de validación -->
+    <string name="usuario_val_codigo">Ingrese su código de usuario</string>
+    <string name="usuario_val_nombre">Ingrese el nombre de usuario</string>
+    <string name="usuario_val_email">Ingrese su email</string>
+    <string name="usuario_val_clave">Ingrese su password</string>
+    <string name="usuario_val_usuario_clave">Usuario o clave invalida</string>
+
+
+    <!--STRING MESA -->
     <string name="mesa_title_Lis">Lista de Mesas</string>
     <string name="mesa_title">Registro de mesas</string>
     <string name="me_Codigo">Código</string>
@@ -42,6 +55,29 @@
     <string name="me_Foto">Foto</string>
     <string name="me_CodigoHint">Código Generado</string>
     <string name="me_NombreHint">Ingrese Nombre</string>
+
+    <!--mensajes de validación -->
+    <string name="mesa_val_codigo">Ingrese su código</string>
+    <string name="mesa_val_nombre">Ingrese el nombre de usuario</string>
+
+
+    <!--STRING CLIENTES -->
+    <string name="cliente_title_Lis">Lista de Clientes</string>
+    <string name="cliente_title">Registro de Clientes</string>
+
+    <string name="cl_Codigo">Código</string>
+    <string name="cl_RUC">RUC</string>
+    <string name="cl_Nombre">Nombre</string>
+    <string name="cl_Estado">Inactivo</string>
+    <string name="cl_CodigoHint">Código Generado</string>
+    <string name="cl_RUCHint">Ingrese RUC</string>
+    <string name="cl_NombreCHint">Ingrese Nombre</string>
+
+    <!--mensajes de validación -->
+    <string name="cliente_val_Codigo">Ingrese el codigo de cliente</string>
+    <string name="cliente_val_RUC">Ingrese RUC</string>
+    <string name="cliente_val_Nombre">Ingrese nombre del cliente</string>
+
 
     <!-- STRING PEDIDO -->
     <string name="pe_Mesa">Mesa :</string>
@@ -53,7 +89,6 @@
 
     <string name="title_activity_activity_maps">activity_maps</string>
     <string name="title_activity_maps">MapsActivity</string>
-
     <string name="en_construccion">Próximamente disponible</string>
 
 </resources>

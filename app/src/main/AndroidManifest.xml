@@ -59,10 +59,21 @@
         <activity
             android:name=".Mesa.Activity_Mesa_Lis"
             android:parentActivityName=".Main.Activity_Main" />
+
+
+        <activity
+            android:name=".Clientes.Activity_Clientes_List"
+            android:parentActivityName=".Main.Activity_Main"
+            ></activity>
+
+        <activity
+            android:name=".Clientes.Activity_Clientes"
+            android:parentActivityName=".Clientes.Activity_Clientes_List"
+            ></activity>
+
         <activity
             android:name=".Mesa.Activity_Mesa"
             android:parentActivityName=".Mesa.Activity_Mesa_Lis" />
-
 
         <activity
             android:name="com.scpdemo.tab_control.MapsActivity"

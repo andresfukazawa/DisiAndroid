@@ -71,7 +71,7 @@ public class Activity_Pedido extends ActionBarActivity {
         Cursor cursor = null;
 
         try{
-            cursor = DataBaseHelper.myDataBase.query("MESA", new String[]{"MESACOD"}, null, null, null, null, "MESACOD");
+            cursor = DataBaseHelper.myDataBase.query("MESAS", new String[]{"MESACOD"}, null, null, null, null, "MESACOD");
             if(cursor.moveToFirst()) {
                 do {
                     list.add(cursor.getInt(cursor.getColumnIndex("MESACOD"))+"");
