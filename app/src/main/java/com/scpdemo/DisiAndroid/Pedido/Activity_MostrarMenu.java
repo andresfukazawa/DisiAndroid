@@ -60,6 +60,7 @@ public class Activity_MostrarMenu extends ActionBarActivity {
         btOrdenar.setOnClickListener(btOrdenarOnClick);
         tvMesa.setText("Mesa " + getIntent().getExtras().getString("mesa"));
 
+
 //        lvMenu.setOnItemClickListener(lvMenuOnClick);
     }
 
@@ -71,7 +72,7 @@ public class Activity_MostrarMenu extends ActionBarActivity {
             cv.put("DETPPRO", mLVMainAdapter.getItem(0).toString());
             cv.put("DETPCAN", 1);
             long temp = DataBaseHelper.myDataBase.insert("PEDIDO_DETALLE", null, cv);
-            Toast.makeText(Activity_MostrarMenu.this, String.valueOf(temp), Toast.LENGTH_SHORT).show();
+//            Toast.makeText(Activity_MostrarMenu.this, String.valueOf(temp), Toast.LENGTH_SHORT).show();
 
             Intent intent = new Intent();
             setResult(RESULT_OK, intent);
@@ -116,6 +117,7 @@ public class Activity_MostrarMenu extends ActionBarActivity {
             Log.d("watcher", s.toString());
             mLVMainAdapter.getFilter().filter(s.toString());
             mLVMainAdapter.notifyDataSetChanged();
+//            tempItem = mLVMainAdapter.getItem(0).toString();
         }
     };
 
