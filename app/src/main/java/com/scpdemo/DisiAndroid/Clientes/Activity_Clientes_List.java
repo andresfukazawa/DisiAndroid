@@ -30,6 +30,7 @@ public class Activity_Clientes_List extends ActionBarActivity {
     private final int RequestCode = 1;
     private boolean isAdd = false;
 
+
     private ListView cl_lvclientes;
     private ArrayList<Cliente> lstCliente = null;
     private ClienteAdapter clienteAdapter = null;

@@ -51,14 +51,6 @@
                 android:password="true"
                 android:hint="Contraseña" />
 
-            <CheckBox
-                android:id="@+id/chkGuardar"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dip"
-                android:singleLine="true"
-                android:text="Guardar Contraseña" />
-
             <Button
                 android:id="@+id/btnUsuarioLogin"
                 style="@style/buttonStyle_250x40"

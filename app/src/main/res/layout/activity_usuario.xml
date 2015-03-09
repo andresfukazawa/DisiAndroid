@@ -20,7 +20,7 @@
             <TextView android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#372c24"
-                android:text="Codigot"/>
+                android:text="@string/us_codigo"/>
 
             <EditText android:id="@+id/us_etcodigo"
                 android:layout_width="fill_parent"
@@ -30,35 +30,36 @@
                 android:enabled="false"
                 />
 
-
             <TextView android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#372c24"
-                android:text="Nombre Completo"/>
+                android:text="@string/us_nombre"/>
 
             <EditText android:id="@+id/us_etNombre"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dip"
-                android:layout_marginBottom="20dip"/>
+                android:layout_marginBottom="20dip"
+                android:maxLength="80" />
 
             <!--  Email Label -->
             <TextView android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#372c24"
-                android:text="Email"/>
+                android:text="@string/us_email"/>
 
             <EditText android:id="@+id/us_etEmail"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dip"
-                android:layout_marginBottom="20dip"/>
+                android:layout_marginBottom="20dip"
+                android:maxLength="30" />
 
             <!-- Password Label -->
             <TextView android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#372c24"
-                android:text="Password"/>
+                android:text="@string/us_clave"/>
 
             <EditText android:id="@+id/us_etPassword"
                 android:layout_width="fill_parent"
@@ -83,7 +84,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dip"
                 android:layout_marginBottom="40dip"
-                android:text="¿Ya tiene cuenta! Entre aquí"
+                android:text="@string/us_registrado"
                 android:gravity="center"
                 android:textSize="20dip"
                 android:textColor="@color/textColor_Ventana"/>

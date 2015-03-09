@@ -53,8 +53,6 @@ public class Activity_Login extends ActionBarActivity {
         txtUsuarioNombre  = (EditText)findViewById(R.id.txtUsuarioNombre);
         txtUsuarioPassword = (EditText)findViewById(R.id.txtUsuarioPassword);
         btnUsuarioLogin = (Button)findViewById(R.id.btnUsuarioLogin);
-        chkGuardar = (CheckBox)findViewById(R.id.chkGuardar);
-
 
         txtUsuarioNombre.setText(getSharedPreferences(getPackageName(), MODE_PRIVATE).getString("Usuario",""));
         txtUsuarioPassword.setText(getSharedPreferences(getPackageName(), MODE_PRIVATE).getString("Clave",""));
@@ -65,43 +63,7 @@ public class Activity_Login extends ActionBarActivity {
         } catch (Exception ex) {
             Toast.makeText(Activity_Login.this, "No se pudo copiar la BD", Toast.LENGTH_SHORT).show();
         }
-
         btnUsuarioLogin.setOnClickListener(btnUsuarioLoginOnClick);
-
-        // LOGIN
-        /*btnUsuarioLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //EXTRAEMOS VALORES DE EDITTEXT
-                String sUser = txtUsuarioNombre.getText().toString();
-                String sPwd =txtUsuarioPassword.getText().toString();
-
-                //Lineas para ocultar el teclado virtual (Hide keyboard)
-                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                imm.hideSoftInputFromWindow(txtUsuarioPassword.getWindowToken(), 0);
-
-                //VALIDANDO DATOS INGRESADOS
-                if (OKData() == true) {
-                    getSharedPreferences(getPackageName(), MODE_PRIVATE).edit()
-                            .putString("Usuario", sUser)
-                            .commit();
-
-                    if(chkGuardar.isChecked()) {
-                    getSharedPreferences(getPackageName(), MODE_PRIVATE).edit()
-                            .putString("Clave", sPwd)
-                            .commit();
-                    }
-
-                    if(!chkGuardar.isChecked()) {
-                        getSharedPreferences(getPackageName(), MODE_PRIVATE).edit()
-                                .putString("Clave", "")
-                                .commit();
-                    }
-                    Intent intent = new Intent(Activity_Login.this, Activity_Main.class);
-                    startActivityForResult(intent, 0);
-                }
-            }
-        });*/
     }
 
     View.OnClickListener btnUsuarioLoginOnClick = new View.OnClickListener() {
@@ -110,6 +72,8 @@ public class Activity_Login extends ActionBarActivity {
 
             Cursor cursor   = null;
             Boolean loginOk = false;
+
+            if (OKData()==false){return;}
 
             try{
                 //Calcular el MD5 de la contrasena
@@ -126,6 +90,8 @@ public class Activity_Login extends ActionBarActivity {
                 cursor = DataBaseHelper.myDataBase.query("USUARIOS", null, "USUADES=? and USUACLAV=?", new String[]{txtUsuarioNombre.getText().toString(), pwdhash}, null, null, null);
                 if(cursor.getCount() == 1) {
                     loginOk = true;
+                }else{
+                    Toast.makeText(Activity_Login.this,R.string.usuario_val_usuario_clave, Toast.LENGTH_SHORT).show();
                 }
 
             } catch (Exception ex) {
@@ -138,20 +104,7 @@ public class Activity_Login extends ActionBarActivity {
             if (loginOk) {
                 SharedPreferences.Editor editor = getSharedPreferences(getPackageName(), MODE_PRIVATE).edit();
                 editor.putString("Usuario", txtUsuarioNombre.getText().toString());
-
                 editor.commit();
-
-                if(chkGuardar.isChecked()) {
-                    getSharedPreferences(getPackageName(), MODE_PRIVATE).edit()
-                            .putString("Clave", txtUsuarioPassword.getText().toString())
-                            .commit();
-                }
-
-                if(!chkGuardar.isChecked()) {
-                    getSharedPreferences(getPackageName(), MODE_PRIVATE).edit()
-                            .putString("Clave", "")
-                            .commit();
-                }
 
                 Intent intent = new Intent(Activity_Login.this, Activity_Main.class);
 //                startActivityForResult(intent, 0);
@@ -165,7 +118,7 @@ public class Activity_Login extends ActionBarActivity {
         }
     };
 
-    /*public Boolean OKData(){
+    public Boolean OKData(){
         Vibrator vibrator = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
         Toast toastUsuario = Toast.makeText(getApplicationContext(),"Ingrese el nombre de usuario",Toast.LENGTH_SHORT);
         Toast toastPassword = Toast.makeText(getApplicationContext(),"Ingrese su password",Toast.LENGTH_SHORT);
@@ -183,22 +136,4 @@ public class Activity_Login extends ActionBarActivity {
         return true;
     }
 
-    private class DownloadTask2 extends AsyncTask<String, Void, Object> {
-        protected Integer doInBackground(String... args) {
-            //BL ws=new BL();
-            //Se invoca nuestro metodo
-            //res=ws.PasswordOK(txtUsuarioNombre.getText().toString(), txtUsuarioPassword.getText().toString());
-            return 1;
-        }
-
-        protected void onPostExecute(Object result) {
-            //Se elimina la pantalla de por favor espere.
-            pd.dismiss();
-            //Se muestra mensaje con la respuesta del servicio web
-            Toast.makeText(context,"Resultado: "+res,Toast.LENGTH_LONG).show();
-            super.onPostExecute(result);
-        }
-
-
-    }*/
 }

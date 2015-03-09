@@ -12,7 +12,6 @@ import java.util.ArrayList;
  */
 public class MesaDAO {
        public  ArrayList<Mesa> lstMesa = null;
-
     public int MESA_MAX() {
         Integer MaxID=0;
         Cursor cursor = null;
