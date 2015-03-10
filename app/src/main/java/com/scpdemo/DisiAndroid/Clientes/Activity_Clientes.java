@@ -8,6 +8,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.CheckBox;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -17,6 +18,11 @@ import com.scpdemo.DisiAndroid.Entities.Cliente;
 import com.scpdemo.DisiAndroid.R;
 import com.scpdemo.DisiAndroid.Util.ConfirmacionDialogfragment;
 import com.scpdemo.DisiAndroid.Util.Funciones;
+
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 /**
  * Created by rgalvez on 03/03/2015.
@@ -34,8 +40,6 @@ public class Activity_Clientes extends ActionBarActivity implements Confirmacion
     private Integer Accion=0;
     private Integer Inactivo=0;
     private Integer MAX_VALOR=0;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,13 +79,9 @@ public class Activity_Clientes extends ActionBarActivity implements Confirmacion
             DataBaseHelper dataBaseHelper = new DataBaseHelper(Activity_Clientes.this);
             dataBaseHelper.createDataBase();
             dataBaseHelper.openDataBase();
-
-
         }catch (Exception ex){
             Toast.makeText(Activity_Clientes.this,R.string.mensaje_conexion, Toast.LENGTH_SHORT).show();
         }
-
-
     }
 
     @Override
@@ -120,6 +120,7 @@ public class Activity_Clientes extends ActionBarActivity implements Confirmacion
             cl_etCodigo.requestFocus();
             return false;
         }
+        /*
         if(cl_etRUC.getText().toString().equals("")){
             Toast toastRUC = Toast.makeText(getApplicationContext(),R.string.cliente_val_RUC,Toast.LENGTH_SHORT);
             toastRUC.show();
@@ -127,6 +128,7 @@ public class Activity_Clientes extends ActionBarActivity implements Confirmacion
             cl_etRUC.requestFocus();
             return false;
         }
+        */
 
         if(cl_etNombre.getText().toString().equals("")){
             Toast toastNombre = Toast.makeText(getApplicationContext(),R.string.cliente_val_Nombre,Toast.LENGTH_SHORT);
@@ -151,15 +153,24 @@ public class Activity_Clientes extends ActionBarActivity implements Confirmacion
 
             //GUARDAMOS
             if (Accion == 0) {
+                //Obtenemos la fecha y hora actual
+                Calendar c = Calendar.getInstance();
+                SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+                String formattedDate = df.format(c.getTime());
+                //procedmiento para insertar
                 Intent intent = new Intent();
                 cliente=new Cliente();
                 cliente.setCLIECOD(Integer.valueOf(cl_etCodigo.getText().toString()));
                 cliente.setCLIERUC(cl_etRUC.getText().toString());
                 cliente.setCLIENOM(cl_etNombre.getText().toString());
+                cliente.setCLIEFECR(String.valueOf(formattedDate));
                 cliente.setCLIEINA(Integer.valueOf(Inactivo));
+
                 clienteDAO.insertCliente(cliente);
                 setResult(RESULT_OK, intent);
                 finish();
+
+
             }
 
             //ACTUALIZAMOS

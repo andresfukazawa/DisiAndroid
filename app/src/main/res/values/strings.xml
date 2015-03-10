@@ -35,7 +35,14 @@
     <!--STRING USUARIO-->
     <string name="usuario_title_Lis">Lista de Usuarios</string>
     <string name="usuario_title">Registro de Usuarios</string>
+
+    <string name="us_codigo">Código</string>
+    <string name="us_nombre">Nombre Completo</string>
+    <string name="us_email">Email</string>
+    <string name="us_clave">Password</string>
     <string name="us_Estado">Inactivo</string>
+    <string name="us_registrado">¿Ya tiene cuenta! Entre aquí?</string>
+
 
 
     <!--mensajes de validación -->
@@ -66,7 +73,7 @@
     <string name="cliente_title">Registro de Clientes</string>
 
     <string name="cl_Codigo">Código</string>
-    <string name="cl_RUC">RUC</string>
+    <string name="cl_RUC">DNI/RUC</string>
     <string name="cl_Nombre">Nombre</string>
     <string name="cl_Estado">Inactivo</string>
     <string name="cl_CodigoHint">Código Generado</string>

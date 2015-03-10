@@ -11,7 +11,6 @@ public class Mesa implements Serializable{
     private String  MESADES;
     private int MESAINA;
     private int FOTO;
-
     public Mesa() {   }
 
     public Mesa(int MESACOD, String MESADES, int MESAINA,int FOTO) {

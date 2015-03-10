@@ -15,7 +15,6 @@ public class Usuario implements Serializable {
     private int  FOTO;
 
     public Usuario() {
-
     }
 
     public Usuario(String USUADES) {

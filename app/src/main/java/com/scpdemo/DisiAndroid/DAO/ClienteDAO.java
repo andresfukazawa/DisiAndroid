@@ -39,7 +39,6 @@ public class ClienteDAO {
     }
 
 
-
     public void Cliente_PopulateList() {
         Cursor cursor = null;
         Cliente cliente = null;
@@ -100,9 +99,9 @@ public class ClienteDAO {
             cv.put("CLIECOD", cliente.getCLIECOD());
             cv.put("CLIERUC", cliente.getCLIERUC());
             cv.put("CLIENOM", cliente.getCLIENOM());
-            //cv.put("CLIEFECR", cliente.getCLIEFECR());
+            cv.put("CLIEFECR", cliente.getCLIEFECR());
             //cv.put("CLIEUSUR", cliente.getCLIEUSUR());
-            //cv.put("CLIEINA", cliente.getCLIEINA());
+            cv.put("CLIEINA", cliente.getCLIEINA());
             DataBaseHelper.myDataBase.insert("CLIENTES",null,cv);
         }catch (Exception ex){
             ex.printStackTrace();

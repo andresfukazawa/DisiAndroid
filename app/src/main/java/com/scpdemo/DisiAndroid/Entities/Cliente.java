@@ -13,7 +13,6 @@ public class Cliente {
     private String CLIEUSUR;
     private int CLIEINA;
     private int FOTO;
-
     public Cliente() {}
 
     public Cliente(int CLIECOD, String CLIERUC, String CLIENOM,int FOTO) {
