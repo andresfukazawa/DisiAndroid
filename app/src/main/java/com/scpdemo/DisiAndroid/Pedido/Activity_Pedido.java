@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,6 +19,7 @@ import com.scpdemo.DisiAndroid.DAO.DataBaseHelper;
 import com.scpdemo.DisiAndroid.R;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -25,19 +27,23 @@ import java.util.List;
  */
 public class Activity_Pedido extends ActionBarActivity {
 
-    private Spinner spMesa;
-    private Button  btEntradas, btPFondo, btPostres;
-    private ActionBarDrawerToggle mActionBarDrawerToggle;
+    private Spinner              spMesa;
+    private Button               btEntradas, btPFondo, btPostres;
+//    private ActionBarDrawerToggle mActionBarDrawerToggle;
+//    private ListView             mainListView ;
+//    private ArrayAdapter<String> listAdapter = null ;
+//    private ArrayList<String>    lstString = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pedido);
 
-        spMesa     = (Spinner)findViewById(R.id.sp_pe_mesa);
-        btEntradas = (Button)findViewById(R.id.bt_pe_entradas);
-        btPFondo   = (Button)findViewById(R.id.bt_pe_pfondo);
-        btPostres  = (Button)findViewById(R.id.bt_pe_postres);
+        spMesa       = (Spinner)findViewById(R.id.sp_pe_mesa);
+        btEntradas   = (Button)findViewById(R.id.bt_pe_entradas);
+        btPFondo     = (Button)findViewById(R.id.bt_pe_pfondo);
+        btPostres    = (Button)findViewById(R.id.bt_pe_postres);
+//        mainListView = (ListView)findViewById(R.id.lv_pe_pendientes);
 
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -63,6 +69,7 @@ public class Activity_Pedido extends ActionBarActivity {
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
+
     }
 
     private void populateSpinner() {

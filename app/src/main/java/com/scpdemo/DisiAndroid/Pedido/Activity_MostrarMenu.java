@@ -22,7 +22,10 @@ import com.scpdemo.DisiAndroid.Adapter.LVMainAdapter;
 import com.scpdemo.DisiAndroid.DAO.DataBaseHelper;
 import com.scpdemo.DisiAndroid.R;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 /**
  * Created by Susumu on 3/4/2015.
@@ -67,7 +70,11 @@ public class Activity_MostrarMenu extends ActionBarActivity {
     View.OnClickListener btOrdenarOnClick = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            Calendar cal = Calendar.getInstance();
+
             ContentValues cv = new ContentValues();
+            cv.put("DETPPED", dateFormat.format(cal.getTime()));
             cv.put("MESADET", Integer.valueOf(getIntent().getExtras().getString("mesa")));
             cv.put("DETPPRO", mLVMainAdapter.getItem(0).toString());
             cv.put("DETPCAN", 1);
