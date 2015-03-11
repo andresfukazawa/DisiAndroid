@@ -44,7 +44,7 @@
         <activity
             android:name=".Pedido.Activity_MostrarMenu"
             android:parentActivityName=".Pedido.Activity_Pedido"/>
-        <activity android:name=".Producto.Activity_Producto" />
+
         <activity android:name=".Main.Activity_Login" />
         <activity
             android:name=".Usuario.Activity_Usuario_List"
@@ -70,9 +70,26 @@
             android:parentActivityName=".Clientes.Activity_Clientes_List"
             ></activity>
 
+
+        <activity
+            android:name=".Producto.Activity_Producto_Lis"
+            android:parentActivityName=".Main.Activity_Main"
+            ></activity>
+
+        <activity
+            android:name=".Producto.Activity_Producto"
+            android:parentActivityName=".Producto.Activity_Producto_Lis"
+            ></activity>
+
+
+
+
         <activity
             android:name=".Mesa.Activity_Mesa"
             android:parentActivityName=".Mesa.Activity_Mesa_Lis" />
+
+
+
 
         <activity
             android:name="com.scpdemo.tab_control.MapsActivity"

@@ -20,6 +20,7 @@ import com.scpdemo.DisiAndroid.Clientes.Activity_Clientes_List;
 import com.scpdemo.DisiAndroid.Mesa.Activity_Mesa_Lis;
 import com.scpdemo.DisiAndroid.Pedido.Activity_Pedido;
 import com.scpdemo.DisiAndroid.Producto.Activity_Producto;
+import com.scpdemo.DisiAndroid.Producto.Activity_Producto_Lis;
 import com.scpdemo.DisiAndroid.R;
 import com.scpdemo.DisiAndroid.Usuario.Activity_Usuario_List;
 import com.scpdemo.tab_control.MapsActivity;
@@ -132,7 +133,8 @@ public class Activity_Main extends ActionBarActivity {
                         startActivity(intentMesas);
                         break;
                     case 3:
-                        Toast.makeText(getApplicationContext(), R.string.en_construccion, Toast.LENGTH_SHORT).show();
+                        Intent intentProductos= new Intent(Activity_Main.this,Activity_Producto_Lis.class);
+                        startActivity(intentProductos);
 //
                         break;
                     case 4:
@@ -196,7 +198,7 @@ public class Activity_Main extends ActionBarActivity {
     View.OnClickListener btnProductoOnClickListener= new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent intent=new Intent(Activity_Main.this,Activity_Producto.class);
+            Intent intent=new Intent(Activity_Main.this,Activity_Producto_Lis.class);
             startActivityForResult(intent,0);
         }
     };
