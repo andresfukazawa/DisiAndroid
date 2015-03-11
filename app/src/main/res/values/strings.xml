@@ -80,6 +80,26 @@
     <string name="cl_RUCHint">Ingrese RUC</string>
     <string name="cl_NombreCHint">Ingrese Nombre</string>
 
+    <!--STRING PRODUCTO -->
+    <string name="producto_title_Lis">Lista de Pedidos</string>
+    <string name="producto_title">Registro de Pedidos</string>
+
+    <string name="pr_Codigo">Código</string>
+    <string name="pr_Nombre">Nombre</string>
+    <string name="pr_Estado">Inactivo</string>
+    <string name="pr_Tipo">Tipo de Producto</string>
+    <string name="pr_Moneda">Moneda</string>
+    <string name="pr_Precio">Precio</string>
+    <string name="pr_Descrip">descripción</string>
+
+    <string name="pr_CodigoHint">Código Generado</string>
+    <string name="pr_NombrePrHind">Ingrese Nombre de Producto</string>
+    <string name="pr_TipoCHint">Ingrese el Tipo de Producto</string>
+    <string name="pr_MonedaCHint">Seleccione Moneda</string>
+    <string name="pr_PrecioCHint">Ingrese Precio</string>
+    <string name="pr_DescripCHint">Ingrese Descripción</string>
+
+
     <!--mensajes de validación -->
     <string name="cliente_val_Codigo">Ingrese el codigo de cliente</string>
     <string name="cliente_val_RUC">Ingrese RUC</string>

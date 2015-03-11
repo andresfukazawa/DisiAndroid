@@ -11,9 +11,10 @@ public class Producto {
     private String PRODDES;
     private double PRODPRE;
     private int PRODINA;
-    private String PRODFTO;
 
-    public Producto(int PRODCOD, String PRODMON, String PRODTIP, String PRODNOM, String PRODDES, double PRODPRE, int PRODINA, String PRODFTO) {
+    public Producto() {   }
+
+    public Producto(int PRODCOD, String PRODMON, String PRODTIP, String PRODNOM, String PRODDES, double PRODPRE, int PRODINA) {
         this.PRODCOD = PRODCOD;
         this.PRODMON = PRODMON;
         this.PRODTIP = PRODTIP;
@@ -21,7 +22,7 @@ public class Producto {
         this.PRODDES = PRODDES;
         this.PRODPRE = PRODPRE;
         this.PRODINA = PRODINA;
-        this.PRODFTO = PRODFTO;
+
     }
 
     public int getPRODCOD() {
@@ -80,11 +81,5 @@ public class Producto {
         this.PRODINA = PRODINA;
     }
 
-    public String getPRODFTO() {
-        return PRODFTO;
-    }
 
-    public void setPRODFTO(String PRODFTO) {
-        this.PRODFTO = PRODFTO;
-    }
 }

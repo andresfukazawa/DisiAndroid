@@ -52,7 +52,6 @@
         <activity
             android:name=".Usuario.Activity_Usuario"
             android:parentActivityName=".Usuario.Activity_Usuario_List" />
-        <activity android:name=".Producto.Activity_Swipe" />
         <activity
             android:name=".Activity_Busqueda"
             android:parentActivityName=".Main.Activity_Main" />
