@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,6 +32,10 @@ public class Activity_Producto_Lis extends ActionBarActivity {
     private final int RequestCode = 1;
     private boolean isAdd = false;
 
+    Spinner pr_spTipo, pr_spMoneda;
+    String[] tipoProd ={"Entrada","Segundo","Postre", "Bebida","Trago"};
+    String[] moneda ={"Soles","Dolares","Euros"};
+
     private ListView lvProducto;
     private ProductoAdapter productoAdapter = null;
     private ProductoDAO productoDAO = new ProductoDAO();
@@ -42,8 +47,8 @@ public class Activity_Producto_Lis extends ActionBarActivity {
 
         pr_etCodigo = (TextView) findViewById(R.id.pr_etCodigo);
         pr_etNombre = (TextView) findViewById(R.id.pr_etNombre);
-        pr_etTipo = (TextView) findViewById(R.id.pr_etTipo);
-        pr_etMoneda = (TextView) findViewById(R.id.pr_etMoneda);
+        pr_spTipo = (Spinner) findViewById(R.id.pr_spTipo);
+        pr_spMoneda = (Spinner) findViewById(R.id.pr_spMon);
         pr_etPrecio = (TextView) findViewById(R.id.pr_etPrecio);
         pr_etDescrip = (TextView) findViewById(R.id.pr_etDescrip);
         lvProducto = (ListView) findViewById(R.id.pr_lvProducto);

@@ -81,8 +81,8 @@
     <string name="cl_NombreCHint">Ingrese Nombre</string>
 
     <!--STRING PRODUCTO -->
-    <string name="producto_title_Lis">Lista de Pedidos</string>
-    <string name="producto_title">Registro de Pedidos</string>
+    <string name="producto_title_Lis">Lista de Productos</string>
+    <string name="producto_title">Registro de Productos</string>
 
     <string name="pr_Codigo">Código</string>
     <string name="pr_Nombre">Nombre</string>
