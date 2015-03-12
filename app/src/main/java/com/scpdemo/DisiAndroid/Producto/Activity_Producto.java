@@ -82,6 +82,7 @@ public class Activity_Producto extends ActionBarActivity implements Confirmacion
                 Accion=1;
             }
 
+
             if (Accion==0){
                 MAX_VALOR=productoDAO.PRODUCTO_MAX()+1;
                 pr_etCodigo.setText(String.valueOf(MAX_VALOR));
