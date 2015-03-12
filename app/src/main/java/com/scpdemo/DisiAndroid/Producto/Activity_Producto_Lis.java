@@ -45,29 +45,28 @@ public class Activity_Producto_Lis extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_producto_list);
 
-        pr_etCodigo = (TextView) findViewById(R.id.pr_etCodigo);
-        pr_etNombre = (TextView) findViewById(R.id.pr_etNombre);
-        pr_spTipo = (Spinner) findViewById(R.id.pr_spTipo);
-        pr_spMoneda = (Spinner) findViewById(R.id.pr_spMon);
-        pr_etPrecio = (TextView) findViewById(R.id.pr_etPrecio);
-        pr_etDescrip = (TextView) findViewById(R.id.pr_etDescrip);
         lvProducto = (ListView) findViewById(R.id.pr_lvProducto);
 
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle(R.string.app_name);
-        getSupportActionBar().setSubtitle(R.string.producto_title);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setIcon(R.drawable.ic_launcher);
-
-
-
-        try{
-            lvProducto.setOnItemClickListener(lvProductoOnItemClickListener);
+        try {
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setTitle(R.string.app_name);
+            getSupportActionBar().setSubtitle(R.string.producto_title);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setIcon(R.drawable.ic_launcher);
 
             DataBaseHelper dataBaseHelper = new DataBaseHelper(Activity_Producto_Lis.this);
             dataBaseHelper.createDataBase();
             dataBaseHelper.openDataBase();
+
+            pr_etCodigo = (TextView) findViewById(R.id.pr_etCodigo);
+            pr_etNombre = (TextView) findViewById(R.id.pr_etNombre);
+            pr_spTipo = (Spinner) findViewById(R.id.pr_spTipo);
+            pr_spMoneda = (Spinner) findViewById(R.id.pr_spMon);
+            pr_etPrecio = (TextView) findViewById(R.id.pr_etPrecio);
+            pr_etDescrip = (TextView) findViewById(R.id.pr_etDescrip);
+
+            lvProducto.setOnItemClickListener(lvProductoOnItemClickListener);
 
             productoDAO.Producto_PopulateList();
             productoAdapter = new ProductoAdapter(Activity_Producto_Lis.this, 0, productoDAO.lstProducto);
@@ -119,7 +118,7 @@ public class Activity_Producto_Lis extends ActionBarActivity {
                 isAdd = true;
                 //invalidateOptionsMenu();
                 Intent intent = new Intent(Activity_Producto_Lis.this, Activity_Producto.class);
-                intent.putExtra("s_Productocod","0");
+                intent.putExtra("s_productocod","0");
                 startActivityForResult(intent,1);
                 return true;
            /* case R.id.ic_action_save:
@@ -138,11 +137,11 @@ public class Activity_Producto_Lis extends ActionBarActivity {
             Producto producto = productoAdapter.getItem(position);
             Intent intent=new Intent(Activity_Producto_Lis.this,Activity_Producto.class);
             intent.putExtra("s_productocod", String.valueOf(productoAdapter.getItem(position).getPRODCOD()));
-            intent.putExtra("s_productonom", productoAdapter.getItem(position).getPRODNOM().toString());
-            intent.putExtra("s_productotip", productoAdapter.getItem(position).getPRODTIP().toString());
             intent.putExtra("s_productomon", productoAdapter.getItem(position).getPRODNOM().toString());
-            intent.putExtra("s_productopre", productoAdapter.getItem(position).getPRODPRE());
+            intent.putExtra("s_productotip", productoAdapter.getItem(position).getPRODTIP().toString());
+            intent.putExtra("s_productonom", productoAdapter.getItem(position).getPRODNOM().toString());
             intent.putExtra("s_productodes", productoAdapter.getItem(position).getPRODDES().toString());
+            intent.putExtra("s_productopre", productoAdapter.getItem(position).getPRODPRE()).toString();
             intent.putExtra("s_productoina", String.valueOf(productoAdapter.getItem(position).getPRODINA()));
             startActivityForResult(intent,1);
 

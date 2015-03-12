@@ -88,9 +88,9 @@ public class Activity_Producto extends ActionBarActivity implements Confirmacion
 
             }  else{
                 pr_etCodigo.setText(getIntent().getExtras().getString("s_productocod"));
-                pr_etNombre.setText(getIntent().getExtras().getString("s_productonom"));
+                pr_etNombre.setText(getIntent().getExtras().getString("s_productomon"));
                 pr_etTipo.setText(getIntent().getExtras().getString("s_productotip"));
-                pr_etMoneda.setText(getIntent().getExtras().getString("s_productomon"));
+                pr_etMoneda.setText(getIntent().getExtras().getString("s_productonom"));
                 pr_etDescrip.setText(getIntent().getExtras().getString("s_productodes"));
                 pr_etPrecio.setText(getIntent().getExtras().getString("s_productopre"));
                 pr_chkEstado.setChecked(Boolean.valueOf(getIntent().getExtras().getString("s_productoina")));

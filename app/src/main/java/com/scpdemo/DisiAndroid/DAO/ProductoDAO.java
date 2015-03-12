@@ -83,6 +83,13 @@ public class ProductoDAO {
                     producto = new Producto();
                     producto.setPRODCOD(PRODCOD);
                     producto.setPRODDES(cursor.isNull(cursor.getColumnIndex("PRODDES")) ? "" : cursor.getString(cursor.getColumnIndex("PRODDES")));
+                    producto.setPRODMON(cursor.isNull(cursor.getColumnIndex("PRODMON")) ? "" : cursor.getString(cursor.getColumnIndex("PRODMON")));
+                    producto.setPRODTIP(cursor.isNull(cursor.getColumnIndex("PRODTIP")) ? "" : cursor.getString(cursor.getColumnIndex("PRODTIP")));
+                    producto.setPRODNOM(cursor.isNull(cursor.getColumnIndex("PRODNOM")) ? "" : cursor.getString(cursor.getColumnIndex("PRODNOM")));
+                    producto.setPRODDES(cursor.isNull(cursor.getColumnIndex("PRODDES")) ? "" : cursor.getString(cursor.getColumnIndex("PRODDES")));
+                    producto.setPRODPRE(cursor.isNull(cursor.getColumnIndex("PRODPRE")) ? 0 : cursor.getDouble(cursor.getColumnIndex("PRODPRE")));
+                    producto.setPRODINA(cursor.isNull(cursor.getColumnIndex("PRODINA")) ? 0 : cursor.getInt(cursor.getColumnIndex("PRODINA")));
+
 
                 } while (cursor.moveToNext());
             }
