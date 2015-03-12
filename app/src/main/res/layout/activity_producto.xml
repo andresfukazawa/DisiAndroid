@@ -127,6 +127,9 @@
             android:maxLength="60" />
 
 
+
+
+
         <CheckBox
             android:id="@+id/pr_chkEstado"
             android:layout_width="fill_parent"

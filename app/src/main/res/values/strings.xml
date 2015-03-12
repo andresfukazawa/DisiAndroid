@@ -99,6 +99,10 @@
     <string name="pr_PrecioCHint">Ingrese Precio</string>
     <string name="pr_DescripCHint">Ingrese Descripción</string>
 
+    <!--mensajes de validación -->
+    <string name="producto_val_descripcion">Ingrese una descripción</string>
+    <string name="producto_val_precio">Ingrese el precio del producto</string>
+
 
     <!--mensajes de validación -->
     <string name="cliente_val_Codigo">Ingrese el codigo de cliente</string>

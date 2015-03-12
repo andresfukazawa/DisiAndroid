@@ -61,6 +61,7 @@ public class Producto {
     }
 
     public String getPRODDES() {
+
         return PRODDES;
     }
 
@@ -80,12 +81,14 @@ public class Producto {
         return PRODINA;
     }
 
-    public void setPRODINA(int PRODINA) {
+    public void setPRODINA(int PRODINA)
+    {
         this.PRODINA = PRODINA;
     }
 
     public int getFOTO() {   return FOTO; }
 
-    public void setFOTO(int FOTO) {    this.FOTO = FOTO;  }
+    public void setFOTO(int FOTO)
+    {    this.FOTO = FOTO;  }
 
 }

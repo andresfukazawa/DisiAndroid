@@ -60,9 +60,9 @@ public class Activity_Producto_Lis extends ActionBarActivity {
             dataBaseHelper.openDataBase();
 
             pr_etCodigo = (TextView) findViewById(R.id.pr_etCodigo);
+            pr_spMoneda = (Spinner) findViewById(R.id.pr_spMon);
             pr_etNombre = (TextView) findViewById(R.id.pr_etNombre);
             pr_spTipo = (Spinner) findViewById(R.id.pr_spTipo);
-            pr_spMoneda = (Spinner) findViewById(R.id.pr_spMon);
             pr_etPrecio = (TextView) findViewById(R.id.pr_etPrecio);
             pr_etDescrip = (TextView) findViewById(R.id.pr_etDescrip);
 
@@ -135,14 +135,15 @@ public class Activity_Producto_Lis extends ActionBarActivity {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             Producto producto = productoAdapter.getItem(position);
+
             Intent intent=new Intent(Activity_Producto_Lis.this,Activity_Producto.class);
             intent.putExtra("s_productocod", String.valueOf(productoAdapter.getItem(position).getPRODCOD()));
             intent.putExtra("s_productomon", productoAdapter.getItem(position).getPRODNOM().toString());
             intent.putExtra("s_productotip", productoAdapter.getItem(position).getPRODTIP().toString());
             intent.putExtra("s_productonom", productoAdapter.getItem(position).getPRODNOM().toString());
             intent.putExtra("s_productodes", productoAdapter.getItem(position).getPRODDES().toString());
-            intent.putExtra("s_productopre", productoAdapter.getItem(position).getPRODPRE()).toString();
-            intent.putExtra("s_productoina", String.valueOf(productoAdapter.getItem(position).getPRODINA()));
+            intent.putExtra("s_productopre", String.valueOf(productoAdapter.getItem(position).getPRODPRE()).toString());
+            intent.putExtra("s_productoina", String.valueOf(productoAdapter.getItem(position).getPRODINA()).toString());
             startActivityForResult(intent,1);
 
 

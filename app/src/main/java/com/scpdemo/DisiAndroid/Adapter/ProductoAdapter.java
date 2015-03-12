@@ -51,7 +51,14 @@ public class ProductoAdapter  extends ArrayAdapter<Producto> {
         mainHolder.pr_itemnombre.setText(producto.getPRODNOM());
         mainHolder.pr_itemdescripcion.setText(producto.getPRODDES());
         mainHolder.pr_itemprecio.setText(Double.toString(producto.getPRODPRE()));
-        mainHolder.pr_itemestado.setText(String.valueOf(producto.getPRODINA()));
+
+        if(producto.getPRODINA()==1){
+            mainHolder.pr_itemestado.setText(String.valueOf("Agotado"));
+        }
+       else{
+            mainHolder.pr_itemestado.setText(String.valueOf("Disponible"));
+        }
+
         mainHolder.pr_foto.setImageResource(producto.getFOTO());
         return convertView;
     }

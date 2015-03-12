@@ -77,7 +77,7 @@ public class Activity_Producto extends ActionBarActivity implements Confirmacion
             dataBaseHelper.createDataBase();
             dataBaseHelper.openDataBase();
 
-            Integer ID=Integer.valueOf(getIntent().getExtras().getString("s_productocod"));
+            Integer ID = Integer.valueOf(getIntent().getExtras().getString("s_productocod"));
             if (ID>0){
                 Accion=1;
             }
@@ -98,7 +98,7 @@ public class Activity_Producto extends ActionBarActivity implements Confirmacion
             }
 
         }catch (Exception ex){
-            Toast.makeText(Activity_Producto.this, R.string.mensaje_conexion, Toast.LENGTH_SHORT).show();
+            Toast.makeText(Activity_Producto.this, "Debe actualizar los datos", Toast.LENGTH_SHORT).show();
         }
 
         CargaDatos();
@@ -158,6 +158,21 @@ public class Activity_Producto extends ActionBarActivity implements Confirmacion
             toastNombre.show();
             vibrator.vibrate(200);
             pr_etNombre.requestFocus();
+            return false;
+        }
+
+        if(pr_etPrecio.getText().toString().equals("")){
+            Toast toastNombre = Toast.makeText(getApplicationContext(),R.string.producto_val_precio,Toast.LENGTH_SHORT);
+            toastNombre.show();
+            vibrator.vibrate(200);
+            pr_etPrecio.requestFocus();
+            return false;
+        }
+        if(pr_etDescrip.getText().toString().equals("")){
+            Toast toastNombre = Toast.makeText(getApplicationContext(),R.string.producto_val_descripcion,Toast.LENGTH_SHORT);
+            toastNombre.show();
+            vibrator.vibrate(200);
+            pr_etDescrip.requestFocus();
             return false;
         }
         return true;
