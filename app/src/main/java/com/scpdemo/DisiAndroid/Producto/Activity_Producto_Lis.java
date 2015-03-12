@@ -1,6 +1,5 @@
 package com.scpdemo.DisiAndroid.Producto;
 
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -13,18 +12,13 @@ import android.view.View;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ListView;
-
+import android.widget.TextView;
 import android.widget.Toast;
 
-
 import com.scpdemo.DisiAndroid.Adapter.ProductoAdapter;
-
 import com.scpdemo.DisiAndroid.DAO.DataBaseHelper;
-
 import com.scpdemo.DisiAndroid.DAO.ProductoDAO;
-
 import com.scpdemo.DisiAndroid.Entities.Producto;
-
 import com.scpdemo.DisiAndroid.R;
 
 
@@ -33,6 +27,7 @@ import com.scpdemo.DisiAndroid.R;
  */
 
 public class Activity_Producto_Lis extends ActionBarActivity {
+    private TextView pr_etCodigo, pr_etNombre,pr_etTipo,pr_etMoneda,pr_etPrecio,pr_etDescrip;
     private final int RequestCode = 1;
     private boolean isAdd = false;
 
@@ -45,7 +40,14 @@ public class Activity_Producto_Lis extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_producto_list);
 
+        pr_etCodigo = (TextView) findViewById(R.id.pr_etCodigo);
+        pr_etNombre = (TextView) findViewById(R.id.pr_etNombre);
+        pr_etTipo = (TextView) findViewById(R.id.pr_etTipo);
+        pr_etMoneda = (TextView) findViewById(R.id.pr_etMoneda);
+        pr_etPrecio = (TextView) findViewById(R.id.pr_etPrecio);
+        pr_etDescrip = (TextView) findViewById(R.id.pr_etDescrip);
         lvProducto = (ListView) findViewById(R.id.pr_lvProducto);
+
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(R.string.app_name);
@@ -53,7 +55,7 @@ public class Activity_Producto_Lis extends ActionBarActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setIcon(R.drawable.ic_launcher);
 
-        //etFiltro.addTextChangedListener(etMenuTextWatcher);
+
 
         try{
             lvProducto.setOnItemClickListener(lvProductoOnItemClickListener);

@@ -51,7 +51,9 @@ public class UsuarioDAO {
                     usuario.setUSUACLAV(cursor.isNull(cursor.getColumnIndex("USUACLAV")) ? "" : cursor.getString(cursor.getColumnIndex("USUACLAV")));
                     usuario.setUSUAMAIL(cursor.isNull(cursor.getColumnIndex("USUAMAIL")) ? "" : cursor.getString(cursor.getColumnIndex("USUAMAIL")));
                     usuario.setUSUAINA(cursor.isNull(cursor.getColumnIndex("USUAINA")) ? 0 : cursor.getInt(cursor.getColumnIndex("USUAINA")));
-                    lstUsuario.add(new Usuario(usuario.getUSUACOD(), usuario.getUSUADES(),usuario.getUSUACLAV(),usuario.getUSUAMAIL(),usuario.getUSUAINA(), R.drawable.seguridad1));
+                    lstUsuario.add(new Usuario(usuario.getUSUACOD(), usuario.getUSUADES(),usuario.getUSUACLAV(),
+
+                            usuario.getUSUAMAIL(),usuario.getUSUAINA(), R.drawable.ic_producto));
                 } while (cursor.moveToNext());
             }
 
@@ -68,7 +70,8 @@ public class UsuarioDAO {
         Cursor cursor = null;
         Usuario usuario = null;
         try {
-            cursor = DataBaseHelper.myDataBase.query("USUARIOS", null, "USUACOD = ?", new String[]{String.valueOf(USUACOD)}, null, null, null);
+            cursor = DataBaseHelper.myDataBase.query("USUARIOS", null, "USUACOD = ?",
+                    new String[]{String.valueOf(USUACOD)}, null, null, null);
 
             if (cursor.moveToFirst()) {
                 do {

@@ -45,7 +45,7 @@ public class Activity_Producto extends ActionBarActivity implements Confirmacion
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mesa);
+        setContentView(R.layout.activity_producto);
         pr_etCodigo = (EditText) findViewById(R.id.pr_etCodigo);
         pr_etNombre = (EditText) findViewById(R.id.pr_etNombre);
         pr_etTipo = (EditText) findViewById(R.id.pr_etTipo);
@@ -158,12 +158,13 @@ public class Activity_Producto extends ActionBarActivity implements Confirmacion
                 Intent intent = new Intent();
                 producto=new Producto();
                 producto.setPRODCOD(Integer.valueOf(pr_etCodigo.getText().toString()));
-                producto.setPRODNOM(pr_etNombre.getText().toString());
                 producto.setPRODMON(pr_etMoneda.getText().toString());
                 producto.setPRODTIP(pr_etTipo.getText().toString());
+                producto.setPRODNOM(pr_etNombre.getText().toString());
                 producto.setPRODDES(pr_etDescrip.getText().toString());
-                producto.setPRODINA(Integer.valueOf(Inactivo));
                 producto.setPRODPRE(Double.valueOf(pr_etPrecio.getText().toString()));
+                producto.setPRODINA(Integer.valueOf(Inactivo));
+
 
                 productoDAO.insertProducto(producto);
                 setResult(RESULT_OK, intent);
@@ -175,12 +176,13 @@ public class Activity_Producto extends ActionBarActivity implements Confirmacion
                 Intent intent = new Intent();
                 producto=new Producto();
                 producto.setPRODCOD(Integer.valueOf(pr_etCodigo.getText().toString()));
-                producto.setPRODNOM(pr_etNombre.getText().toString());
                 producto.setPRODMON(pr_etMoneda.getText().toString());
                 producto.setPRODTIP(pr_etTipo.getText().toString());
+                producto.setPRODNOM(pr_etNombre.getText().toString());
                 producto.setPRODDES(pr_etDescrip.getText().toString());
-                producto.setPRODINA(Integer.valueOf(Inactivo));
                 producto.setPRODPRE(Double.valueOf(pr_etPrecio.getText().toString()));
+                producto.setPRODINA(Integer.valueOf(Inactivo));
+
 
                 productoDAO.updateProducto(producto);
 

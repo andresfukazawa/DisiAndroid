@@ -57,7 +57,7 @@ public class ProductoDAO {
                     producto.setPRODPRE(cursor.isNull(cursor.getColumnIndex("PRODPRE")) ? 0 : cursor.getDouble(cursor.getColumnIndex("PRODPRE")));
                     producto.setPRODINA(cursor.isNull(cursor.getColumnIndex("PRODINA")) ? 0 : cursor.getInt(cursor.getColumnIndex("PRODINA")));
                     lstProducto.add(new Producto(producto.getPRODCOD(),producto.getPRODMON(),producto.getPRODTIP(),producto.getPRODNOM(),
-                            producto.getPRODDES(),producto.getPRODPRE(),producto.getPRODINA()));
+                            producto.getPRODDES(),producto.getPRODPRE(),producto.getPRODINA(),R.drawable.ic_producto));
                 } while (cursor.moveToNext());
             }
 
@@ -71,16 +71,17 @@ public class ProductoDAO {
 
 
 
-    public Producto getPRODUCTOCODById(int PRODUCTOCOD) {
+    public Producto getPRODUCTOCODById(int PRODCOD) {
         Cursor cursor = null;
         Producto producto = null;
         try {
-            cursor = DataBaseHelper.myDataBase.query("PRODUCTO", null, "PRODCOD = ?", new String[]{String.valueOf(PRODUCTOCOD)}, null, null, null);
+            cursor = DataBaseHelper.myDataBase.query("PRODUCTO", null, "PRODCOD = ?",
+                    new String[]{String.valueOf(PRODCOD)}, null, null, null);
 
             if (cursor.moveToFirst()) {
                 do {
                     producto = new Producto();
-                    producto.setPRODCOD(PRODUCTOCOD);
+                    producto.setPRODCOD(PRODCOD);
                     producto.setPRODDES(cursor.isNull(cursor.getColumnIndex("PRODDES")) ? "" : cursor.getString(cursor.getColumnIndex("PRODDES")));
 
                 } while (cursor.moveToNext());
@@ -99,14 +100,12 @@ public class ProductoDAO {
             ContentValues cv = new ContentValues();
 
             cv.put("PRODCOD", producto.getPRODCOD());
-            cv.put("PRODNOM", producto.getPRODNOM());
-            cv.put("PRODTIP", producto.getPRODTIP());
-            cv.put("PRODPRE", producto.getPRODPRE());
-            cv.put("PRODDES", producto.getPRODDES());
             cv.put("PRODMON", producto.getPRODMON());
+            cv.put("PRODTIP", producto.getPRODTIP());
+            cv.put("PRODNOM", producto.getPRODNOM());
+            cv.put("PRODDES", producto.getPRODDES());
+            cv.put("PRODPRE", producto.getPRODPRE());
             cv.put("PRODINA", producto.getPRODINA());
-
-
             DataBaseHelper.myDataBase.insert("PRODUCTO",null,cv);
         }catch (Exception ex){
             ex.printStackTrace();
@@ -117,11 +116,11 @@ public class ProductoDAO {
         try{
             ContentValues cv = new ContentValues();
             cv.put("PRODCOD", producto.getPRODCOD());
-            cv.put("PRODNOM", producto.getPRODNOM());
-            cv.put("PRODTIP", producto.getPRODTIP());
-            cv.put("PRODPRE", producto.getPRODPRE());
-            cv.put("PRODDES", producto.getPRODDES());
             cv.put("PRODMON", producto.getPRODMON());
+            cv.put("PRODTIP", producto.getPRODTIP());
+            cv.put("PRODNOM", producto.getPRODNOM());
+            cv.put("PRODDES", producto.getPRODDES());
+            cv.put("PRODPRE", producto.getPRODPRE());
             cv.put("PRODINA", producto.getPRODINA());
 
             DataBaseHelper.myDataBase.update("PRODUCTO",cv,"PRODCOD = ?", new String[]{String.valueOf(producto.getPRODCOD())});

@@ -11,10 +11,11 @@ public class Producto {
     private String PRODDES;
     private double PRODPRE;
     private int PRODINA;
+    private int FOTO;
 
     public Producto() {   }
 
-    public Producto(int PRODCOD, String PRODMON, String PRODTIP, String PRODNOM, String PRODDES, double PRODPRE, int PRODINA) {
+    public Producto(int PRODCOD, String PRODMON, String PRODTIP, String PRODNOM, String PRODDES, double PRODPRE, int PRODINA,int FOTO) {
         this.PRODCOD = PRODCOD;
         this.PRODMON = PRODMON;
         this.PRODTIP = PRODTIP;
@@ -22,8 +23,10 @@ public class Producto {
         this.PRODDES = PRODDES;
         this.PRODPRE = PRODPRE;
         this.PRODINA = PRODINA;
-
+        this.FOTO = FOTO;
     }
+
+
 
     public int getPRODCOD() {
         return PRODCOD;
@@ -81,5 +84,8 @@ public class Producto {
         this.PRODINA = PRODINA;
     }
 
+    public int getFOTO() {   return FOTO; }
+
+    public void setFOTO(int FOTO) {    this.FOTO = FOTO;  }
 
 }
