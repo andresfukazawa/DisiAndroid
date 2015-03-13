@@ -35,16 +35,33 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".Pedido.Activity_Pedidos"
+            android:parentActivityName=".Pedido.Activity_Pedidos"
+            ></activity>
+
+        <activity
+            android:name=".Pedido.Activity_Pedido_Search"
+            android:parentActivityName=".Pedido.Activity_Pedidos"
+            ></activity>
+
+        <activity
+            android:name=".Pedido.Activity_Update_Pedido"
+            android:parentActivityName=".Pedido.Activity_Pedidos"
+            ></activity>
+
+
         <activity
             android:name=".Main.Activity_Main"
             android:parentActivityName=".Main.Activity_Login" />
-        <activity
-            android:name=".Pedido.Activity_Pedido"
-            android:parentActivityName=".Main.Activity_Main"/>
+
+
+
         <activity
             android:name=".Pedido.Activity_MostrarMenu"
             android:parentActivityName=".Pedido.Activity_Pedido"/>
-        <activity android:name=".Producto.Activity_Producto" />
+
         <activity android:name=".Main.Activity_Login" />
         <activity
             android:name=".Usuario.Activity_Usuario_List"
@@ -78,6 +95,16 @@
             android:name="com.scpdemo.tab_control.MapsActivity"
             android:label="@string/title_activity_maps"
             android:parentActivityName=".Main.Activity_Main" />
+
+        <activity
+            android:name=".Producto.Activity_Producto_Lis"
+            android:parentActivityName=".Main.Activity_Main"
+            ></activity>
+
+        <activity
+            android:name=".Producto.Activity_Producto"
+            android:parentActivityName=".Producto.Activity_Producto_Lis"
+            ></activity>
 
         <meta-data
             android:name="com.google.android.gms.version"

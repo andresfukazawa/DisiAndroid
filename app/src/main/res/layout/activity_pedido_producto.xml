@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@+id/lnspiner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/tvMesa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mesa"
+        android:textSize="30dp"
+       />
+
+    <Spinner
+        android:id="@+id/sp_mesa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvMesa"
+        android:gravity="center"
+        >
+     </Spinner>
+
+</LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lnOpciones"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lnspiner"
+        >
+        <Button
+            android:id="@+id/btEntrada"
+            android:layout_below="@+id/etmesa"
+            android:text="Entrada"
+            android:textSize="20dp"
+            style="@style/buttonStyle_Search"/>
+
+        <Button
+            android:id="@+id/btCarta"
+            android:layout_below="@+id/btNuevo"
+            android:text="Carta"
+            android:textSize="20dp"
+            style="@style/buttonStyle_Search"/>
+
+        <Button
+            android:id="@+id/btPostre"
+            android:layout_below="@+id/btNuevo"
+            android:text="Postre"
+            android:textSize="20dp"
+            style="@style/buttonStyle_Search"/>
+
+    </LinearLayout>
+
+
+    <EditText
+        android:id="@+id/etBuscar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lnOpciones"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:hint="Busque producto"
+        android:maxHeight="40dp" />
+
+     <ListView
+        android:id="@+id/lvProducto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fastScrollEnabled="true"
+        android:layout_below="@+id/etBuscar"
+        />
+
+</RelativeLayout>

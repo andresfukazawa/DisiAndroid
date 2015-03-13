@@ -18,7 +18,7 @@ public class UsuarioDAO {
         Integer MaxID=0;
         Cursor cursor = null;
         try{
-            cursor = DataBaseHelper.myDataBase.rawQuery("SELECT  MAX(USUACOD)AS ID FROM USUARIOS",null);
+            cursor = DataBaseHelper.myDataBase.rawQuery("SELECT   ifnull(MAX(USUACOD),0) AS ID FROM USUARIOS",null);
             if(cursor.moveToFirst()) {
                 do {
                     MaxID = Integer.valueOf(cursor.getString(cursor.getColumnIndex("ID")));

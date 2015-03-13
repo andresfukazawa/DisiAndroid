@@ -90,8 +90,12 @@ public class Activity_Login extends ActionBarActivity {
                 cursor = DataBaseHelper.myDataBase.query("USUARIOS", null, "USUADES=? and USUACLAV=?", new String[]{txtUsuarioNombre.getText().toString(), pwdhash}, null, null, null);
                 if(cursor.getCount() == 1) {
                     loginOk = true;
-                }else{
-                    Toast.makeText(Activity_Login.this,R.string.usuario_val_usuario_clave, Toast.LENGTH_SHORT).show();
+                    //Ocultamos nel teclado
+                    InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(txtUsuarioPassword.getWindowToken(), 0);
+
+               // }else{
+                //    Toast.makeText(Activity_Login.this,R.string.usuario_val_usuario_clave, Toast.LENGTH_SHORT).show();
                 }
 
             } catch (Exception ex) {
@@ -111,8 +115,6 @@ public class Activity_Login extends ActionBarActivity {
                 startActivity(intent);
             } else {
                 Toast.makeText(Activity_Login.this, R.string.login_fallido, Toast.LENGTH_SHORT).show();
-                txtUsuarioPassword.setText("");
-                chkGuardar.setChecked(false);
             }
 
         }

@@ -16,6 +16,7 @@ import java.util.ArrayList;
 public class ProductoDAO {
 
     public ArrayList<Producto> lstProducto = null;
+    public ArrayList<Producto> lstProductoSearch = null;
     public int PRODUCTO_MAX() {
         Integer MaxID=0;
         Cursor cursor = null;
@@ -35,6 +36,34 @@ public class ProductoDAO {
                 cursor.close();
         }
         return MaxID;
+    }
+
+    public void Producto_PopulateSearch() {
+        Cursor cursor = null;
+        Producto producto = null;
+        try {
+
+            cursor = DataBaseHelper.myDataBase.query("PRODUCTO", null, null, null, null, null, "PRODDES");
+            lstProductoSearch = new ArrayList<Producto>();
+            lstProductoSearch.clear();
+            if (cursor.moveToFirst()) {
+                do {
+                    producto = new Producto();
+
+                    producto.setPRODCOD(cursor.isNull(cursor.getColumnIndex("PRODCOD")) ? 0 : cursor.getInt(cursor.getColumnIndex("PRODCOD")));
+                    producto.setPRODNOM(cursor.isNull(cursor.getColumnIndex("PRODNOM")) ? "" : cursor.getString(cursor.getColumnIndex("PRODNOM")));
+                    producto.setPRODPRE(cursor.isNull(cursor.getColumnIndex("PRODPRE")) ? 0 : cursor.getDouble(cursor.getColumnIndex("PRODPRE")));
+                    lstProductoSearch.add(new Producto(producto.getPRODCOD(),producto.getPRODMON(),producto.getPRODTIP(),producto.getPRODNOM(),
+                    producto.getPRODDES(),producto.getPRODPRE(),producto.getPRODINA()));
+                } while (cursor.moveToNext());
+            }
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            if (cursor != null)
+                cursor.close();
+        }
     }
 
     public void Producto_PopulateList() {
@@ -68,6 +97,44 @@ public class ProductoDAO {
                 cursor.close();
         }
     }
+
+    public void Producto_PopulateList_Opciones(Integer NROPARAM) {
+        Cursor cursor = null;
+        Producto producto = null;
+        try {
+            if (NROPARAM==0){
+                cursor = DataBaseHelper.myDataBase.query("PRODUCTO", null,null,null, null, null, "PRODDES");
+            }else{
+                cursor = DataBaseHelper.myDataBase.query("PRODUCTO", null, "PRODTIP = ?", new String[]{String.valueOf(NROPARAM)}, null, null, "PRODDES");
+            }
+
+            lstProductoSearch = new ArrayList<Producto>();
+            lstProductoSearch.clear();
+            if (cursor.moveToFirst()) {
+                do {
+                    producto = new Producto();
+
+                    producto.setPRODCOD(cursor.isNull(cursor.getColumnIndex("PRODCOD")) ? 0 : cursor.getInt(cursor.getColumnIndex("PRODCOD")));
+                    producto.setPRODMON(cursor.isNull(cursor.getColumnIndex("PRODMON")) ? "" : cursor.getString(cursor.getColumnIndex("PRODMON")));
+                    producto.setPRODTIP(cursor.isNull(cursor.getColumnIndex("PRODTIP")) ? "" : cursor.getString(cursor.getColumnIndex("PRODTIP")));
+                    producto.setPRODNOM(cursor.isNull(cursor.getColumnIndex("PRODNOM")) ? "" : cursor.getString(cursor.getColumnIndex("PRODNOM")));
+                    producto.setPRODDES(cursor.isNull(cursor.getColumnIndex("PRODDES")) ? "" : cursor.getString(cursor.getColumnIndex("PRODDES")));
+                    producto.setPRODPRE(cursor.isNull(cursor.getColumnIndex("PRODPRE")) ? 0 : cursor.getDouble(cursor.getColumnIndex("PRODPRE")));
+                    producto.setPRODINA(cursor.isNull(cursor.getColumnIndex("PRODINA")) ? 0 : cursor.getInt(cursor.getColumnIndex("PRODINA")));
+                    lstProductoSearch.add(new Producto(producto.getPRODCOD(),producto.getPRODMON(),producto.getPRODTIP(),producto.getPRODNOM(),
+                            producto.getPRODDES(),producto.getPRODPRE(),producto.getPRODINA()));
+                } while (cursor.moveToNext());
+            }
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            if (cursor != null)
+                cursor.close();
+        }
+    }
+
+
 
 
 

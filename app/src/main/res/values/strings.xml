@@ -2,7 +2,7 @@
 <resources>
 
     <string name="mensaje_conexion">No se pudo copiar la base de datos(no se pudo abrir la conexión)</string>
-    <string name="dialog_save">¿Esta seguro de Guardar?</string>
+    <string name="dialog_save">¿Esta seguro confirmar la acción?</string>
     <string name="dialog_delete">¿Esta seguro de eliminar el registro?</string>
 
     <string name="app_name">RESTOBAR</string>
@@ -118,5 +118,10 @@
     <string name="title_activity_activity_maps">activity_maps</string>
     <string name="title_activity_maps">MapsActivity</string>
     <string name="en_construccion">Próximamente disponible</string>
+
+
+
+
+
 
 </resources>

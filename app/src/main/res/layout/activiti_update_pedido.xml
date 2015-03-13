@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
+    >
+
+        <TextView
+            android:id="@+id/tvpedido"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PEDIDO"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            />
+
+
+        <EditText
+            android:id="@+id/etpedido"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:text="0"
+            android:enabled="false"
+            />
+
+    <TextView
+        android:id="@+id/tvMesa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MESA"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        />
+
+
+    <EditText
+        android:id="@+id/etMesa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:enabled="false"
+        />
+
+
+    <TextView
+        android:id="@+id/tvCantidad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CANTIDAD"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        />
+
+
+    <EditText
+        android:id="@+id/etcantidad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:text="0"
+        android:numeric="integer"
+        android:maxLength="3" />
+
+    <LinearLayout
+        android:id="@+id/lnOpciones"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lnmesa">
+
+    <Button
+        android:id="@+id/btGuardar"
+        android:text="GUARDAR"
+        android:textSize="20dp"
+        android:layout_marginLeft="10dp"
+        style="@style/buttonStyle_Editar"
+        />
+
+    <Button
+        android:id="@+id/btEliminar"
+        android:text="ELIMINAR"
+        android:textSize="20dp"
+        style="@style/buttonStyle_Editar"
+        android:layout_toRightOf="@+id/foto"
+        />
+    </LinearLayout>
+
+</LinearLayout>

@@ -86,7 +86,6 @@ public class Activity_MostrarMenu extends ActionBarActivity {
             finish();
         }
     };
-
     private void populateList(String tipo) {
         Cursor cursor = null;
         mLstString = new ArrayList<>();

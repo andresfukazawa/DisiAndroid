@@ -16,7 +16,7 @@ public class MesaDAO {
         Integer MaxID=0;
         Cursor cursor = null;
         try{
-            cursor = DataBaseHelper.myDataBase.rawQuery("SELECT  MAX(MESACOD)AS ID FROM MESAS",null);
+            cursor = DataBaseHelper.myDataBase.rawQuery("SELECT   ifnull(MAX(MESACOD),0)AS ID FROM MESAS",null);
             if(cursor.moveToFirst()) {
                 do {
                     MaxID = Integer.valueOf(cursor.getString(cursor.getColumnIndex("ID")));

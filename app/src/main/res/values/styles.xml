@@ -45,6 +45,33 @@
 
     </style>
 
+    <style name="buttonStyle">
+        <item name="android:layout_width">150dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">#FF8F00</item>
+        <item name="android:textColor">#ffff</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginLeft">10dp</item>
+    </style>
+
+    <style name="buttonStyle_Search">
+        <item name="android:layout_width">92dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">#FF8F00</item>
+        <item name="android:textColor">#ffff</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginLeft">10dp</item>
+    </style>
+
+    <style name="buttonStyle_Editar">
+        <item name="android:layout_width">140dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">#FF8F00</item>
+        <item name="android:textColor">#ffff</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginLeft">10dp</item>
+    </style>
+
     <style name="buttonStyle_120x40">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>

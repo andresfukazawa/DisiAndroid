@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="5dp">
+    <TextView
+        android:id="@+id/dp_itemid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="dp_itemid"
+        android:layout_alignParentTop="true"
+        android:textAppearance="@android:style/TextAppearance.Holo.Small"
+        android:visibility="gone"
+        />
+
+    <TextView
+        android:id="@+id/dp_itemnropedido"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="dp_itemnropedido"
+        android:layout_below="@+id/dp_itemid"
+        android:textStyle="bold"
+        android:visibility="gone"
+        />
+
+    <TextView
+        android:id="@+id/dp_itemmesanro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="dp_itemmesanro"
+        android:layout_below="@+id/dp_itemnropedido"
+        android:textStyle="bold"
+        android:textSize="14dp"
+        android:textColor="@color/color_primarydark"
+        />
+
+    <TextView
+        android:id="@+id/dp_itemproductodesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="dp_itemproductodesc"
+        android:layout_below="@+id/dp_itemmesanro"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:id="@+id/dp_itemcantidad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="dp_itemcantidad"
+        android:layout_below="@+id/dp_itemproductodesc"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:id="@+id/dp_itemprecio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="dp_itemprecio"
+        android:layout_below="@+id/dp_itemcantidad"
+        android:textStyle="bold"
+        />
+
+    <!--
+
+        <TextView
+            android:id="@+id/dp_itemid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:layout_alignParentTop="true"
+            android:textAppearance="@android:style/TextAppearance.Holo.Small"
+            android:visibility="invisible"
+            />
+
+
+        <TextView
+            android:id="@+id/dp_itemnropedido"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:layout_below="@+id/dp_itemid"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/dp_itemproductoid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:layout_below="@+id/dp_itemnropedido"
+            android:textStyle="bold"
+            android:visibility="invisible"
+            />
+
+        <TextView
+            android:id="@+id/dp_itemcantidad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:layout_below="@+id/dp_itemproductoid"
+            android:layout_toRightOf="@+id/foto"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/dp_itemprecio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:layout_below="@+id/dp_itemcantidad"
+            android:textStyle="bold"
+            android:visibility="invisible"
+            />
+
+        <TextView
+            android:id="@+id/dp_itemmesanro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:layout_below="@+id/dp_itemprecio"
+            android:layout_toRightOf="@+id/foto"
+            android:textStyle="bold"
+            android:visibility="invisible"
+            />
+
+        <TextView
+            android:id="@+id/dp_itemfecha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:layout_below="@+id/dp_itemmesanro"
+            android:layout_toRightOf="@+id/foto"
+            android:textStyle="bold"
+            android:visibility="invisible"
+            />
+
+        <TextView
+            android:id="@+id/dp_itemestadoid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:layout_below="@+id/dp_itemfecha"
+            android:layout_toRightOf="@+id/foto"
+            android:textStyle="bold"
+            android:visibility="invisible"
+            />
+
+        <TextView
+            android:id="@+id/dp_itemmesadesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:layout_below="@+id/dp_itemestadoid"
+            android:textStyle="bold"
+            android:visibility="invisible"
+            />
+        <TextView
+            android:id="@+id/dp_itemproductodesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:layout_below="@+id/dp_itemmesadesc"
+            android:textStyle="bold"
+            android:visibility="invisible"
+            />
+         -->
+
+</RelativeLayout>
