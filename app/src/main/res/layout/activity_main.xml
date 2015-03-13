@@ -39,7 +39,7 @@
                 <Button
                     android:id="@+id/btnUsuario"
                     style="@style/dashboard_button_center"
-                    android:drawableTop="@drawable/seguridad2"
+                    android:drawableTop="@drawable/usuario"
                     android:onClick="clicked"
                     android:text="@string/button1"
                     />
@@ -54,7 +54,7 @@
                 <Button
                     android:id="@+id/btnCliente"
                     style="@style/dashboard_button_center"
-                    android:drawableTop="@drawable/cliente2"
+                    android:drawableTop="@drawable/clientes"
                     android:onClick="clicked"
                     android:text="@string/button2"
                     />
@@ -92,7 +92,7 @@
                 <Button
                     android:id="@+id/btnProducto"
                     style="@style/dashboard_button_center"
-                    android:drawableTop="@drawable/circulo"
+                    android:drawableTop="@drawable/producto"
                     android:onClick="clicked"
                     android:text="@string/button4"
                    />
@@ -115,7 +115,7 @@
                 <Button
                     android:id="@+id/btnPedido"
                     style="@style/dashboard_button_center"
-                    android:drawableTop="@drawable/tenedor"
+                    android:drawableTop="@drawable/pedido"
                     android:onClick="clicked"
                     android:text="@string/button5"
                     />
@@ -130,7 +130,7 @@
                 <Button
                     android:id="@+id/btnFacturar"
                     style="@style/dashboard_button_center"
-                    android:drawableTop="@drawable/dolar"
+                    android:drawableTop="@drawable/facturacion"
                     android:onClick="clicked"
                     android:text="@string/button6"
                    />
@@ -153,7 +153,7 @@
                 <Button
                     android:id="@+id/btnConsulta"
                     style="@style/dashboard_button_center"
-                    android:drawableTop="@drawable/buscar2"
+                    android:drawableTop="@drawable/consulta"
                     android:onClick="clicked"
                     android:text="@string/button7"
                    />
@@ -168,7 +168,7 @@
                 <Button
                     android:id="@+id/btnReporte"
                     style="@style/dashboard_button_center"
-                    android:drawableTop="@drawable/nota1"
+                    android:drawableTop="@drawable/reporte"
                     android:onClick="clicked"
                     android:text="@string/button8"
                    />

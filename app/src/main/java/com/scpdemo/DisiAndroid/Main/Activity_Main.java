@@ -45,15 +45,15 @@ public class Activity_Main extends ActionBarActivity {
             "Clientes",
             "Mesas",
             "Productos",
-            "Ubicación de Franquicias"
+            "Ubicación del Local"
     };
 
 
     int[] imagenes = {
-            R.drawable.seguridad3,
-            R.drawable.cliente1,
+            R.drawable.usuario,
+            R.drawable.clientes,
             R.drawable.mesa,
-            R.drawable.nota1,
+            R.drawable.producto,
             R.drawable.ic_gps};
 
     @Override
