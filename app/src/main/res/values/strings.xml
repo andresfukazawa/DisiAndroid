@@ -116,7 +116,7 @@
     <string name="pe_PFondo">Platos de fondo</string>
     <string name="pe_Postres">Postres</string>
     <string name="pe_hint_filtro">Ingrese filtro</string>
-    <string name="pe_filtro_instrucciones">Filtre hasta que quede sólo un item en la lista.</string>
+    <string name="pe_filtro_instrucciones">Se añadirá primero de la lista.</string>
     <string name="pe_ordenar">Ordenar</string>
 
     <string name="title_activity_activity_maps">activity_maps</string>
