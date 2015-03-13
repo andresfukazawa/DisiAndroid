@@ -82,7 +82,7 @@
         android:layout_below="@+id/pr_itemdescripcion"
         android:layout_toRightOf="@+id/foto"
         android:textStyle="bold"
-        android:visibility="invisible"
+
         />
 
 </RelativeLayout>

@@ -20,14 +20,12 @@
             android:textStyle="bold"
             />
 
-        <EditText
-            android:id="@+id/pr_etCodigo"
+
+        <EditText android:id="@+id/pr_etCodigo"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dip"
             android:layout_marginBottom="20dip"
-            android:singleLine="true"
-            android:hint="@string/pr_CodigoHint"
             android:enabled="false"
             />
 
@@ -49,7 +47,7 @@
             android:layout_marginBottom="20dip"
             android:singleLine="true"
             android:hint="@string/pr_NombrePrHind"
-            android:numeric="integer" />
+             />
 
         <TextView
             android:id="@+id/pr_tvTipo"
@@ -61,15 +59,15 @@
             android:textStyle="bold"
             />
 
-        <EditText
-            android:id="@+id/pr_etTipo"
-            android:layout_width="fill_parent"
+
+
+        <Spinner
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dip"
-            android:layout_marginBottom="20dip"
-            android:singleLine="true"
-            android:hint="@string/pr_TipoCHint"
-            android:maxLength="60" />
+            android:id="@+id/pr_spTipo"
+            android:layout_marginBottom="15dp"
+            android:hint="Seleccione opción"
+                       android:spinnerMode="dialog" />
 
         <TextView
             android:id="@+id/pr_tvMoneda"
@@ -80,15 +78,13 @@
             android:textSize="18dp"
             android:textStyle="bold"
             />
-        <EditText
-            android:id="@+id/pr_etMoneda"
-            android:layout_width="fill_parent"
+        <Spinner
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dip"
-            android:layout_marginBottom="20dip"
-            android:singleLine="true"
-            android:hint="@string/pr_MonedaCHint"
-            android:maxLength="60" />
+            android:id="@+id/pr_spMon"
+            android:layout_marginBottom="15dp"
+
+            android:spinnerMode="dialog" />
 
         <TextView
             android:id="@+id/pr_tvPrecio"
@@ -98,6 +94,7 @@
             android:text="@string/pr_Precio"
             android:textSize="18dp"
             android:textStyle="bold"
+            android:inputType="numberDecimal"
             />
         <EditText
             android:id="@+id/pr_etPrecio"
@@ -107,7 +104,8 @@
             android:layout_marginBottom="20dip"
             android:singleLine="true"
             android:hint="@string/pr_PrecioCHint"
-            android:maxLength="60" />
+            android:maxLength="60"
+            android:numeric="decimal"/>
 
         <TextView
             android:id="@+id/pr_tvDescrip"
@@ -127,6 +125,9 @@
             android:singleLine="true"
             android:hint="@string/pr_DescripCHint"
             android:maxLength="60" />
+
+
+
 
 
         <CheckBox

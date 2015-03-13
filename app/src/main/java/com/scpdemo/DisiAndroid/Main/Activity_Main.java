@@ -1,6 +1,7 @@
 package com.scpdemo.DisiAndroid.Main;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
@@ -45,15 +46,15 @@ public class Activity_Main extends ActionBarActivity {
             "Clientes",
             "Mesas",
             "Productos",
-            "Ubicación de Franquicias"
+            "Ubicación del Local"
     };
 
 
     int[] imagenes = {
-            R.drawable.seguridad3,
-            R.drawable.cliente1,
+            R.drawable.usuario,
+            R.drawable.clientes,
             R.drawable.mesa,
-            R.drawable.nota1,
+            R.drawable.producto,
             R.drawable.ic_gps};
 
     @Override
@@ -135,7 +136,8 @@ public class Activity_Main extends ActionBarActivity {
                         startActivity(intentMesas);
                         break;
                     case 3:
-                        Toast.makeText(getApplicationContext(), R.string.en_construccion, Toast.LENGTH_SHORT).show();
+                        Intent intentProductos= new Intent(Activity_Main.this,Activity_Producto_Lis.class);
+                        startActivity(intentProductos);
 //
                         break;
                     case 4:
@@ -170,6 +172,17 @@ public class Activity_Main extends ActionBarActivity {
             return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        mActionBarDrawerToggle.syncState();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        mActionBarDrawerToggle.onConfigurationChanged(newConfig);
+    }
 
 
     View.OnClickListener btnUsuarioOnClickListener= new View.OnClickListener() {

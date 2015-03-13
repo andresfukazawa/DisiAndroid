@@ -22,6 +22,15 @@ public class SplashScreen extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
+     //   setContentView(R.layout.splashscreem);
+     //   Resources res= getResources();
+     //   Resources drawable = res.getDrawable(R.drawable.shape_presentacion);
+      //  textView tv_shape =(TextView) findViewByid(tv_shape);
+
+      //  tv_shape.setBackgroundDrawable(drawable);
+
+
         // Set portrait orientation
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         // Hide title bar

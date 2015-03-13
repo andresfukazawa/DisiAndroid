@@ -36,29 +36,17 @@
 
     <Button
         android:id="@+id/bt_pe_entradas"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:text="@string/pe_Entradas"
-        android:layout_weight="1"
-        android:textSize="24dp"
-        android:textStyle="bold"/>
+        style="@style/pedidoButtonStyle"/>
 
     <Button
         android:id="@+id/bt_pe_pfondo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:text="@string/pe_PFondo"
-        android:layout_weight="1"
-        android:textSize="24dp"
-        android:textStyle="bold"/>
+        style="@style/pedidoButtonStyle"/>
 
     <Button
         android:id="@+id/bt_pe_postres"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:text="@string/pe_Postres"
-        android:layout_weight="1"
-        android:textSize="24dp"
-        android:textStyle="bold"/>
+        style="@style/pedidoButtonStyle"/>
 
 </LinearLayout>

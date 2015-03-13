@@ -29,10 +29,6 @@ public class Activity_Pedido extends ActionBarActivity {
 
     private Spinner              spMesa;
     private Button               btEntradas, btPFondo, btPostres;
-//    private ActionBarDrawerToggle mActionBarDrawerToggle;
-//    private ListView             mainListView ;
-//    private ArrayAdapter<String> listAdapter = null ;
-//    private ArrayList<String>    lstString = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +39,6 @@ public class Activity_Pedido extends ActionBarActivity {
         btEntradas   = (Button)findViewById(R.id.bt_pe_entradas);
         btPFondo     = (Button)findViewById(R.id.bt_pe_pfondo);
         btPostres    = (Button)findViewById(R.id.bt_pe_postres);
-//        mainListView = (ListView)findViewById(R.id.lv_pe_pendientes);
 
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

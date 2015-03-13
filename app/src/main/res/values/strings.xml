@@ -81,8 +81,8 @@
     <string name="cl_NombreCHint">Ingrese Nombre</string>
 
     <!--STRING PRODUCTO -->
-    <string name="producto_title_Lis">Lista de Pedidos</string>
-    <string name="producto_title">Registro de Pedidos</string>
+    <string name="producto_title_Lis">Lista de Productos</string>
+    <string name="producto_title">Registro de Productos</string>
 
     <string name="pr_Codigo">Código</string>
     <string name="pr_Nombre">Nombre</string>
@@ -99,6 +99,10 @@
     <string name="pr_PrecioCHint">Ingrese Precio</string>
     <string name="pr_DescripCHint">Ingrese Descripción</string>
 
+    <!--mensajes de validación -->
+    <string name="producto_val_descripcion">Ingrese una descripción</string>
+    <string name="producto_val_precio">Ingrese el precio del producto</string>
+
 
     <!--mensajes de validación -->
     <string name="cliente_val_Codigo">Ingrese el codigo de cliente</string>
@@ -112,7 +116,7 @@
     <string name="pe_PFondo">Platos de fondo</string>
     <string name="pe_Postres">Postres</string>
     <string name="pe_hint_filtro">Ingrese filtro</string>
-    <string name="pe_filtro_instrucciones">Filtre hasta que quede sólo un item en la lista.</string>
+    <string name="pe_filtro_instrucciones">Se añadirá primero de la lista.</string>
     <string name="pe_ordenar">Ordenar</string>
 
     <string name="title_activity_activity_maps">activity_maps</string>
