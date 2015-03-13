@@ -31,7 +31,7 @@
         android:layout_below="@+id/dp_itemnropedido"
         android:textStyle="bold"
         android:textSize="14dp"
-        android:textColor="@color/color_primarydark"
+        android:textColor="@color/colorPrimary"
         />
 
     <TextView

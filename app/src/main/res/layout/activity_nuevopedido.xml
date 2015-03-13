@@ -10,7 +10,7 @@
         android:id="@+id/tvmoso"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Usuario"
+        android:text="Moso"
         android:textSize="20dp"
         android:textStyle="bold" />
 
@@ -79,7 +79,7 @@
             android:layout_below="@+id/tvmesa"
             android:textSize="20dp"
             android:textStyle="bold"
-            android:layout_marginLeft="22dp"
+            android:layout_marginLeft="30dp"
             android:gravity="center"
             android:text="0"
             android:maxLength="6"

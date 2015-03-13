@@ -157,11 +157,14 @@ public class Activity_Pedido_Search extends ActionBarActivity  {
             SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
             String formattedDate = df.format(c.getTime());
 
-            if (Accion!=0){
+            if (Accion==0){
                 if (sp_mesa.getSelectedItem().toString().trim().length()==0){
                     Toast.makeText(Activity_Pedido_Search.this,"Seleccione Mesa", Toast.LENGTH_SHORT).show();
                     return;
                 }
+            }
+
+            if (Accion!=0){
 
                PROD_EXIST=pedidoDetalleDAO.PROD_EXISTS(productoAdapter.getItem(position).getPRODCOD(),MAX_PEDIDO);
               if(PROD_EXIST>0 ){
@@ -177,7 +180,7 @@ public class Activity_Pedido_Search extends ActionBarActivity  {
             pedido_detalle.setDETPPRE(Double.valueOf(productoAdapter.getItem(position).getPRODPRE()));
             if (Accion==0){
                pedido_detalle.setDETMESA(Integer.valueOf(sp_mesa.getSelectedItem().toString()));
-                intent.putExtra("sPedido_Mesa", sp_mesa.getSelectedItem().toString());
+                intent.putExtra("sPedido_Mesa", String.valueOf(sp_mesa.getSelectedItem().toString()));
                 intent.putExtra("sPedido_Nro",String.valueOf(MAX_PEDIDO));
             }else{
                 pedido_detalle.setDETMESA(Integer.valueOf(iPedido_Mesa));

@@ -145,11 +145,11 @@ public class PedidoDetalleDAO{
         try {
             //FILTRAMOS POR PEDIDO
                 if (Opcion==1){
-                    cursor = DataBaseHelper.myDataBase.query("V_PEDIDO_DETALLE", null, "DETPPED = ?", new String[]{String.valueOf(NROPARAM)}, null, null, null);
+                    cursor = DataBaseHelper.myDataBase.query("V_PEDIDO_DETALLE", null, "DETPPED = ?", new String[]{String.valueOf(NROPARAM)}, null, null, "PRODNOM");
                 }
             //FILTRAMOS POR PEDIDO
             if (Opcion==2){
-                cursor = DataBaseHelper.myDataBase.query("V_PEDIDO_DETALLE", null, "DETMESA = ?", new String[]{String.valueOf(NROPARAM)}, null, null, null);
+                cursor = DataBaseHelper.myDataBase.query("V_PEDIDO_DETALLE", null, "DETMESA = ?", new String[]{String.valueOf(NROPARAM)}, null, null, "PRODNOM");
             }
             lstPedido_Detalle = new ArrayList<Pedido_Detalle>();
             lstPedido_Detalle.clear();
