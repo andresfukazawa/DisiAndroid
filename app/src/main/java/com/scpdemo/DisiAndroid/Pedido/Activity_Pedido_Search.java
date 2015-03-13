@@ -73,9 +73,16 @@ public class Activity_Pedido_Search extends ActionBarActivity  {
         btPostre = (Button) findViewById(R.id.btPostre);
         tvMesa = (TextView) findViewById(R.id.tvMesa);
 
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle(R.string.app_name);
+        getSupportActionBar().setSubtitle(R.string.pedido_search);
+        getSupportActionBar().setIcon(R.drawable.ic_launcher);
+
         btEntrada.setOnClickListener(OnClickListenerbtEntrada);
         btcarta.setOnClickListener(OnClickListenerbtcarta);
         btPostre.setOnClickListener(OnClickListenerbtPostre);
+
         try{
             DataBaseHelper dataBaseHelper = new DataBaseHelper(Activity_Pedido_Search.this);
             dataBaseHelper.createDataBase();

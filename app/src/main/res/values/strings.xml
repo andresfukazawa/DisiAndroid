@@ -124,6 +124,10 @@
     <string name="en_construccion">Próximamente disponible</string>
 
 
+    <!--STRING CLIENTES -->
+    <string name="pedido_title_Lis">Proceso de pedidos</string>
+    <string name="pedido_search">Seleccione</string>
+
 
 
 

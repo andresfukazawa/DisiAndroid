@@ -43,7 +43,7 @@ public class Activity_Pedido extends ActionBarActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(R.string.app_name);
-        getSupportActionBar().setSubtitle(R.string.dashboard_title_pedidos);
+        getSupportActionBar().setSubtitle(R.string.pedido_title_Lis);
         getSupportActionBar().setIcon(R.drawable.ic_launcher);
 
         populateSpinner();
