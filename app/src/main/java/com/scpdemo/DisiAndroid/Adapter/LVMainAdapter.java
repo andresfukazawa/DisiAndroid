@@ -83,6 +83,7 @@ public class LVMainAdapter extends ArrayAdapter<String> implements Filterable {
         protected void publishResults(CharSequence constraint, FilterResults results) {
             mLstStringFiltrado.clear();
             mLstStringFiltrado.addAll((ArrayList<String>) results.values);
+            notifyDataSetChanged();
         }
     }
 }

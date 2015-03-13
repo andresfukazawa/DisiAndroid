@@ -123,7 +123,7 @@ public class Activity_MostrarMenu extends ActionBarActivity {
         public void afterTextChanged(Editable s) {
             Log.d("watcher", s.toString());
             mLVMainAdapter.getFilter().filter(s.toString());
-            mLVMainAdapter.notifyDataSetChanged();
+//            mLVMainAdapter.notifyDataSetChanged();
 //            tempItem = mLVMainAdapter.getItem(0).toString();
         }
     };

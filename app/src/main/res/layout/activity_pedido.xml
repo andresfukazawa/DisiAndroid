@@ -36,7 +36,7 @@
 
     <Button
         android:id="@+id/bt_pe_entradas"
-       android:text="@string/pe_Entradas"
+        android:text="@string/pe_Entradas"
         style="@style/pedidoButtonStyle"/>
 
     <Button
