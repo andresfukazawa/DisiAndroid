@@ -123,51 +123,8 @@ public class Activity_MostrarMenu extends ActionBarActivity {
         public void afterTextChanged(Editable s) {
             Log.d("watcher", s.toString());
             mLVMainAdapter.getFilter().filter(s.toString());
-            mLVMainAdapter.notifyDataSetChanged();
-//            tempItem = mLVMainAdapter.getItem(0).toString();
+//            mLVMainAdapter.notifyDataSetChanged();
         }
     };
 
-    /*@Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_platos, menu);
-        menu.findItem(R.id.ic_action_add).setVisible(true);
-        return super.onCreateOptionsMenu(menu);
-    }*/
-
-    /*@Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-//        Toast.makeText(Activity_MostrarMenu.this, "getCount() : " + mLVMainAdapter.getCount(), Toast.LENGTH_SHORT).show();
-
-        switch (item.getItemId()) {
-            case R.id.ic_action_add:
-//                mLVMainAdapter.get
-//                if (lvMenu.getCount() == 1) {
-                if (mLVMainAdapter.getCount() == 1) {
-                    //if (mLVMenuAdapter.getCount() == 1) {
-//                    Toast.makeText(Activity_MostrarMenu.this, "getCount() : " + mLVMainAdapter.getCount(), Toast.LENGTH_SHORT).show();
-                    ContentValues cv = new ContentValues();
-                    cv.put("MESADET", Integer.valueOf(getIntent().getExtras().getString("mesa")));
-                    cv.put("DETPPRO", mLVMainAdapter.getItem(0).toString());
-                    cv.put("DETPCAN", 1);
-                    long temp = DataBaseHelper.myDataBase.insert("PEDIDO_DETALLE", null, cv);
-                    Toast.makeText(Activity_MostrarMenu.this, String.valueOf(temp), Toast.LENGTH_SHORT).show();
-
-                    Intent intent = new Intent();
-                    setResult(RESULT_OK, intent);
-                    finish();
-                }
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-
-    }*/
-
-    /*ListView.OnItemClickListener lvMenuOnClick = new AdapterView.OnItemClickListener() {
-        @Override
-        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            String data=(String)parent.getItemAtPosition(position);
-            etFiltro.setText(data);
-        }
-    };*/
 }
