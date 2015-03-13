@@ -26,6 +26,17 @@ public class Producto {
         this.FOTO = FOTO;
     }
 
+    public Producto(int PRODCOD, String PRODMON, String PRODTIP, String PRODNOM, String PRODDES, double PRODPRE, int PRODINA) {
+        this.PRODCOD = PRODCOD;
+        this.PRODMON = PRODMON;
+        this.PRODTIP = PRODTIP;
+        this.PRODNOM = PRODNOM;
+        this.PRODDES = PRODDES;
+        this.PRODPRE = PRODPRE;
+        this.PRODINA = PRODINA;
+
+    }
+
 
 
     public int getPRODCOD() {
