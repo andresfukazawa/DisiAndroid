@@ -53,7 +53,7 @@ public class UsuarioDAO {
                     usuario.setUSUAINA(cursor.isNull(cursor.getColumnIndex("USUAINA")) ? 0 : cursor.getInt(cursor.getColumnIndex("USUAINA")));
                     lstUsuario.add(new Usuario(usuario.getUSUACOD(), usuario.getUSUADES(),usuario.getUSUACLAV(),
 
-                            usuario.getUSUAMAIL(),usuario.getUSUAINA(), R.drawable.mesero));
+                     usuario.getUSUAMAIL(),usuario.getUSUAINA(), R.drawable.mesero));
                 } while (cursor.moveToNext());
             }
 
