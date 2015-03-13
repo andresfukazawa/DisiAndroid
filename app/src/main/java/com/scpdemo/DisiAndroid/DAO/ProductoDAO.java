@@ -57,7 +57,7 @@ public class ProductoDAO {
                     producto.setPRODPRE(cursor.isNull(cursor.getColumnIndex("PRODPRE")) ? 0 : cursor.getDouble(cursor.getColumnIndex("PRODPRE")));
                     producto.setPRODINA(cursor.isNull(cursor.getColumnIndex("PRODINA")) ? 0 : cursor.getInt(cursor.getColumnIndex("PRODINA")));
                     lstProducto.add(new Producto(producto.getPRODCOD(),producto.getPRODMON(),producto.getPRODTIP(),producto.getPRODNOM(),
-                            producto.getPRODDES(),producto.getPRODPRE(),producto.getPRODINA(),R.drawable.ic_producto));
+                            producto.getPRODDES(),producto.getPRODPRE(),producto.getPRODINA(),R.drawable.comida));
                 } while (cursor.moveToNext());
             }
 
