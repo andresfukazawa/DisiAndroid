@@ -17,12 +17,13 @@
         />
 
     <TextView
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="@string/integrantes_miembros"
         android:textSize="25dp"
         android:gravity="center"
-        android:textColor="#CFD8DC"
+        android:textColor="#ff201802"
         android:textStyle="bold"
-        />
+        android:id="@+id/tv_principal" />
 </LinearLayout>
